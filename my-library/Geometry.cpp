@@ -379,7 +379,7 @@ namespace myg2d {
 	Vector normal(Line n) { return Vector(n.a, n.b); }
 	Vector perpendicular(Point A, Line n) { return -resize(normal(n), dist(A, n)); }
 	Point perpendicular_base(Point A, Line n) { return A + perpendicular(A, n); }
-	Point simmetry(Point A, Line n) { return A + 2 * perpendicular(A, n); }
+	Point symmetry(Point A, Line n) { return A + 2 * perpendicular(A, n); }
 	Point bissector(Point A, Point O, Point B) {
 		// can be upgrading
 		ld a = dist(A, B);
