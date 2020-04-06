@@ -13,12 +13,14 @@ struct Node {
 	int x, y;
 	Node *L, *R;
 	int sz = 0;
+	long long sum = 0;
 
 	int size() { return sz; }
 	bool empty() { return !sz; }
 	void upd() {
 		if (!empty()) {
 			sz = L->size() + 1 + R->size();
+			sum = L->sum + x + R->sum;
 		}
 	}
 	Node* kth(int k) {
@@ -93,6 +95,7 @@ Node* fast_insert(Node *t, Node *nn) {
 		auto st = split(t, nn->x);
 		nn->L = st.first;
 		nn->R = st.second;
+		nn->upd();
 		return nn;
 	}
 	else if (t->x < nn->x) {
