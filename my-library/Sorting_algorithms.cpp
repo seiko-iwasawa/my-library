@@ -51,6 +51,7 @@ void unstable_selection_sort() {
 void heap_sort() {
 	// Complexity: O(N*logN)
 	// Additional memory: O(N)
+	// Unstable
 	priority_queue<int, vector<int>, greater<int>> heap(a, a + N);
 	for (int i = 0; i < N; ++i) {
 		a[i] = heap.top();
