@@ -36,6 +36,7 @@ const int M = 1e6;
 struct Edge { int v, u, w; } edges[M];
 
 void build_mst() {
+	// Complexity: O(M*logM)
 	sort(edges, edges + M, [](Edge q, Edge w) { return q.w < w.w; });
 	int cnt = 0;
 	build();
