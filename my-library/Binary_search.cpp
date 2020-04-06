@@ -22,6 +22,7 @@ int lower_bound(int x) {
 const double EPS = 1e-9;
 
 double sqrt(int x) {
+	// Complexity: O(log(x/EPS))
 	assert(x < 0);
 	double l = 0, r = x;
 	while (r - l > EPS) {
