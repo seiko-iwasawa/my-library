@@ -15,7 +15,7 @@ void build() {
 	fill(sz, sz + N, 1);
 }
 
-// a is the inverse Ackerman function)
+// a is the inverse Ackerman function
 
 int find(int x) {
 	// Complexity: O(a(N))
