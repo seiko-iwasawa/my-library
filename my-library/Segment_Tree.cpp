@@ -24,6 +24,7 @@ void build(int pos, int l, int r) {
 }
 
 void upd(int pos, int l, int r, int i, int x) {
+	// Complexity: O(logN)
 	if (i < l || r <= i) {
 		return;
 	}
@@ -38,6 +39,7 @@ void upd(int pos, int l, int r, int i, int x) {
 }
 
 int get(int pos, int l, int r, int ql, int qr) {
+	// Complexity: O(logN)
 	if (qr <= l || r <= ql) {
 		return -INF;
 	}
