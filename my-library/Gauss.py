@@ -1,3 +1,5 @@
+# unchecked
+
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -9,8 +11,8 @@ def relax(a):
     for x in a:
         d = gcd(d, x)
     if d:
-        for x in a:
-            x //= d
+        for i in range(len(a)):
+			a[i] //= d
 
 
 N = int(input())
