@@ -1,5 +1,6 @@
-import random
+# uncheked
 
+import random
 
 def gcd(a, b):
     if b == 0: return a
@@ -21,8 +22,3 @@ def pollard(n):
             x = nxt(x) % n
             y = nxt(nxt(y)) % n
         return -1
-
-
-while True:
-    n = int(input())
-    print(pollard(n))
