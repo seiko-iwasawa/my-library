@@ -37,7 +37,7 @@ int pollard(int n) {
 		int x = rnd() % n;
 		int y = x;
 		for (int it = 0; it < 1e6; ++it) {
-			if (x != y & gcd(abs(x - y), n) != 1) {
+			if (x != y && gcd(abs(x - y), n) != 1) {
 				return gcd(abs(x - y), n);
 			}
 			x = nxt(x);
