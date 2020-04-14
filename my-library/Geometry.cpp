@@ -148,6 +148,9 @@ namespace myg2d {
 	ld dist(Point A, Point B);
 	ld dot_product(Vector a, Vector b);
 	ld cross_product(Vector a, Vector b);
+	bool operator==(Point A, Point B);
+	Point operator+(Point A, Vector a);
+	Vector operator*(Vector a, ld k);
 
 
 	/* Definition */
@@ -178,6 +181,12 @@ namespace myg2d {
 		Ray() {}
 		Ray(Point _O, Vector _r) : O(_O), r(_r) {}
 		Ray(Point A, Point B) : O(A), r(A, B) {}
+	};
+	struct Angle {
+		Point A, O, B;
+
+		Angle() {}
+		Angle(Point _A, Point _O, Point _B) : A(_A), O(_O), B(_B) {}
 	};
 	struct Line {
 		ld a, b, c;
@@ -292,7 +301,6 @@ namespace myg2d {
 	Vector operator*(ld k, Vector a) { return { a.x * k, a.y * k }; }
 	Vector operator*(Vector a, ld k) { return { a.x * k, a.y * k }; }
 	Vector& operator*=(Vector &a, ld k) { return a = a * k; }
-	Vector operator/(ld k, Vector a) { return { a.x / k, a.y / k }; }
 	Vector operator/(Vector a, ld k) { return { a.x / k, a.y / k }; }
 	Vector& operator/=(Vector &a, ld k) { return a = a / k; }
 	Vector operator+(Vector a, Vector b) { return { a.x + b.x, a.y + b.y }; }
@@ -305,7 +313,7 @@ namespace myg2d {
 		}
 	Line operator-(Line n, Vector a) { return n + -a; }
 	Line& operator+=(Line &n, Vector a) { return n = n + a; }
-	Line operator-=(Line &n, Vector a) { return n = n - a; }
+	Line& operator-=(Line &n, Vector a) { return n = n - a; }
 
 
 	/* Basic functions */
@@ -325,7 +333,19 @@ namespace myg2d {
 		return res;
 	}
 	ld s(Triangle t) { return double_s(t) / 2; }
-	ld s(Polygon p) { return s(p) / 2; }
+	ld s(Polygon p) { return double_s(p) / 2; }
+	ld s(Circle q) { return PI * q.r * q.r; }
+	ld perimeter(Polygon p) {
+		if (p.size() <= 1) {
+			return 0;
+		}
+		ld res = dist(p.back(), p[0]);
+		for (int i = 1; i < p.size(); ++i) {
+			res += dist(p[i], p[i - 1]);
+		}
+		return res;
+	}
+	ld perimeter(Triangle t) { return perimeter(Polygon(t)); }
 	ld dot_product(Vector a, Vector b) { return a.x * b.x + a.y * b.y; }
 	ld cross_product(Vector a, Vector b) { return a.x * b.y - a.y * b.x; }
 	ld atan2(Point A) { return ::atan2(A.y, A.x); }
@@ -334,18 +354,19 @@ namespace myg2d {
 
 
 	/* Checkers */
-	bool on_line(Point P, Line n) { return n.get(P) == 0; }
-	bool on_seg(Point P, Seg s) {
+	bool on(Point P, Line n) { return n.get(P) == 0; }
+	bool on(Point P, Seg s) {
 		return dot_product(Vector(P, s.A), Vector(P, s.B)) <= 0
 			&& cross_product(Vector(P, s.A), Vector(P, s.B)) == 0;
 	}
-	bool on_ray(Point P, Ray f) {
+	bool on(Point P, Ray f) {
 		return dot_product(f.r, Vector(f.O, P)) >= 0
 			&& cross_product(f.r, Vector(f.O, P)) == 0;
 	}
+	bool in(Point P, Angle a) { return P == a.O || abs(atan2(Vector(a.O, a.A), Vector(a.O, a.B))) == abs(atan2(Vector(a.O, a.A), Vector(a.O, P))) + abs(atan2(Vector(a.O, P), Vector(a.O, a.B))); }
 	bool in(Point P, Polygon p);
 	bool in(Point P, Triangle t) { return in(P, Polygon(t)); }
-	bool in(Circle a, Point P) { return dist2(a.O, P) <= a.r * a.r; }
+	bool in(Point P, Circle a) { return dist2(a.O, P) <= a.r * a.r; }
 	bool cross_segs(Seg q, Seg w) {
 		Line n(q), m(w);
 		return sign(m(q.A)) * sign(m(q.B)) <= 0
@@ -470,6 +491,16 @@ namespace myg2d {
 			return { P - t, P + t };
 		}
 	}
+	vector<Point> intersect(Seg q, Circle a) {
+		vector<Point> res = intersect(Line(q.A, q.B), a);
+		for (int i = 0; i < res.size(); ++i) {
+			if (!on(res[i], q)) {
+				swap(res[i--], res.back());
+				res.pop_back();
+			}
+		}
+		return res;
+	}
 	Line common_external_tangent(Circle a, Circle b) {
 		if (a.r == b.r) {
 			Line n(a.O, b.O);
@@ -504,14 +535,14 @@ namespace myg2d {
 		for (int i = 0; i < (int)p.size(); ++i) {
 			Point A = p[i];
 			Point B = p[(i + 1) % p.size()];
-			if (on_seg(P, Seg(A, B))) {
+			if (on(P, Seg(A, B))) {
 				return true;
 			}
 			if (A.y > B.y) {
 				swap(A, B);
 			}
 			auto arr = intersect(Line(A, B), Line(P, Vector(1, 0)));
-			if (arr.size() == 1 && on_seg(arr[0], Seg(A, B))) {
+			if (arr.size() == 1 && on(arr[0], Seg(A, B))) {
 				res ^= (arr[0] != A && arr[0].x >= P.x);
 			}
 		}
@@ -542,7 +573,7 @@ namespace myg2d {
 	}
 	Polygon operator+(Polygon P, Polygon Q) { return minkovski_sum(P, Q); }
 	Polygon convex_hull(Polygon p) {
-		sort(p.begin(), p.end());
+		sort(p.begin(), p.end(), [](Point A, Point B) { return make_pair(A) < make_pair(B); });
 		p.erase(unique(p.begin(), p.end()), p.end());
 		sort(p.begin() + 1, p.end(), [&](Point A, Point B) {
 			if (is_collinear(Vector(p[0], A), Vector(p[0], B))) {
@@ -569,10 +600,46 @@ namespace myg2d {
 
 using namespace myg2d;
 
+ld kek(Triangle t, Circle q) {
+	if (in(t.B, q) && in(t.C, q)) {
+		return abs(s(t));
+	}
+	else if (!in(t.B, q) && !in(t.C, q)) {
+		auto arr = intersect(Seg(t.B, t.C), q);
+		if (arr.size() <= 1) {
+			return abs(s(q)) * abs(atan2(Vector(t.A, t.B), Vector(t.A, t.C))) / (2 * PI);
+		}
+		else {
+			Point X = arr[0];
+			Point Y = arr[1];
+			if (dist(t.B, Y) < dist(t.B, X)) {
+				swap(X, Y);
+			}
+			return abs(s(q)) * (abs(atan2(Vector(t.A, t.B), Vector(t.A, X))) + abs(atan2(Vector(t.A, Y), Vector(t.A, t.C)))) / (2 * PI) + abs(s(Triangle(t.A, X, Y)));
+		}
+	}
+	else {
+		if (in(t.B, q)) {
+			swap(t.B, t.C);
+		}
+		Point X = intersect(Seg(t.A, t.B), q)[0];
+		Point Y = intersect(Seg(t.C, t.B), q)[0];
+		return abs(s(Triangle(t.A, Y, t.C))) + abs(s(q)) * abs(atan2(Vector(t.A, X), Vector(t.A, Y))) / (2 * PI);
+	}
+}
+
 signed main() {
 	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	cout.precision(47); cout << fixed;
-
+	Polygon p;
+	Circle q;
+	cin >> p >> q;
+	ld si = 0;
+	for (int i = 0; i < p.size(); ++i) {
+		si += kek(Triangle(q.O, p[i], p[(i + 1) % p.size()]), q);
+		cout << kek(Triangle(q.O, p[i], p[(i + 1) % p.size()]), q) << '\n';
+	}
+	cout << abs(s(q)) - si << '\n';
 	system("pause");
 	return 0;
 }
