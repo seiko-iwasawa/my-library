@@ -1,5 +1,3 @@
-// unchecked
-
 #include <iostream>
 #include <cmath>
 #include <random>
