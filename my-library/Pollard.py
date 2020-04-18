@@ -1,5 +1,3 @@
-# uncheked
-
 import random
 
 def gcd(a, b):
