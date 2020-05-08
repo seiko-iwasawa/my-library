@@ -201,7 +201,6 @@ namespace myg2d {
 		}
 
 		void init(Point A, Point B) {
-			check_warning(A == B, "Line isn't correct.", __LINE__, __FILE__);
 			a = A.y - B.y;
 			b = B.x - A.x;
 			c = -(a * A.x + b * A.y);
@@ -238,26 +237,25 @@ namespace myg2d {
 	};
 	struct Polygon : vector<Point> {
 		Polygon() {}
-		Polygon(vector<Point> p) {
-			for (Point A : p) {
-				push_back(A);
-			}
-		}
-		Polygon(Triangle t) { push_back(t.A); push_back(t.B); push_back(t.C); }
+		Polygon(vector<Point> p) { *this = p; }
+		Polygon(Triangle t) { *this = vector<Point>({ t.A, t.B, t.C }); }
 	};
 
 
 	/* Secondary functions */
 	pair<ld, ld> make_pair(Point A) { return { A.x, A.y }; }
 	pair<ld, ld> make_pair(Vector a) { return { a.x, a.y }; }
-	pair<Point, Point> make_pair(Seg s) { return { s.A, s.B }; }
+	pair<Point, Point> make_pair(Seg q) { return { q.A, q.B }; }
 
 
 	/* Operators */
 	istream& operator>>(istream &in, Point &A) { return in >> A.x >> A.y; }
 	istream& operator>>(istream &in, Vector &a) { return in >> a.x >> a.y; }
+	istream& operator>>(istream &in, Seg &q) { return in >> q.A >> q.B; }
+	istream& operator>>(istream &in, Ray &g) { return in >> g.O >> g.r; }
+	istream& operator>>(istream &in, Angle &phi) { return in >> phi.A >> phi.O >> phi.B; }
 	istream& operator>>(istream &in, Line &n) { return in >> n.a >> n.b >> n.c; }
-	istream& operator>>(istream &in, Circle &a) { return in >> a.O >> a.r; }
+	istream& operator>>(istream &in, Circle &w) { return in >> w.O >> w.r; }
 	istream& operator>>(istream &in, Triangle &t) { return in >> t.A >> t.B >> t.C; }
 	istream& operator>>(istream &in, Polygon &p) {
 		int n;
@@ -268,9 +266,11 @@ namespace myg2d {
 		}
 		return in;
 	}
-	istream& operator>>(istream &in, Seg &s) { return in >> s.A >> s.B; }
 	ostream& operator<<(ostream &out, Point A) { return out << A.x << ' ' << A.y; }
 	ostream& operator<<(ostream &out, Vector a) { return out << a.x << ' ' << a.y; }
+	ostream& operator<<(ostream &out, Seg q) { return out << q.A << ' ' << q.B; }
+	ostream& operator<<(ostream &out, Ray g) { return out << g.O << '\n' << g.r; }
+	ostream& operator<<(ostream &out, Angle phi) { return out << phi.A << '\n' << phi.O << '\n' << phi.B << '\n'; }
 	ostream& operator<<(ostream &out, Line n) { return out << n.a << ' ' << n.b << ' ' << n.c; }
 	ostream& operator<<(ostream &out, Circle a) { return out << a.O << ' ' << a.r; }
 	ostream& operator<<(ostream &out, Triangle t) { return out << t.A << '\n' << t.B << '\n' << t.C; }
@@ -280,18 +280,26 @@ namespace myg2d {
 			}
 			return out;
 		}
-	ostream& operator<<(ostream &out, Seg &s) { return out << s.A << ' ' << s.B; }
 	bool operator==(Point A, Point B) { return make_pair(A) == make_pair(B); }
 	bool operator==(Vector a, Vector b) { return make_pair(a) == make_pair(b); }
+	bool operator==(Seg q, Seg e) { return make_pair(q) == make_pair(e); }
+	// TODO: operator==(Ray g, Ray h)
+	// TODO: operator==(Angle phi, Angle psi)
 	bool operator==(Line n, Line m) {
-			return n.b * m.a == n.a * m.b && n.a * m.c == n.c * m.a && n.b * m.c == n.c * m.b;
-		}
-	bool operator==(Circle f, Circle g) { return f.O == g.O && f.r == g.r; }
+		return n.a * m.b == n.b * m.a && n.b * m.c == n.c * m.b && n.c * m.a == n.a * m.c;
+	}
+	bool operator==(Circle w, Circle u) { return w.O == u.O && w.r == u.r; }
 	bool operator==(Triangle t, Triangle r) { return t.get_sorted_sides2() == r.get_sorted_sides2(); }
-	bool operator==(Seg q, Seg w) { return make_pair(q) == make_pair(w); }
+	// TODO: operator==(Polygon p, Polygon r)
 	bool operator!=(Point A, Point B) { return !(A == B); }
+	bool operator!=(Vector a, Vector b) { return !(a == b); }
+	bool operator!=(Seg q, Seg e) { return !(q == e); }
+	// TODO: operator!=(Ray g, Ray h)
+	// TODO: operator!=(Angle phi, Angle psi)
+	bool operator!=(Line n, Line m) { return !(n == m); }
 	bool operator!=(Triangle t, Triangle r) { return !(t == r); }
-	bool operator!=(Seg q, Seg w) { return !(q == w); }
+	bool operator!=(Circle w, Circle u) { return !(w == u); }
+	// TODO: operator!=(Polygon p, Polygon r)
 	Point operator+(Point A, Point B) { return { A.x + B.x, A.y + B.y }; }
 	Point operator+(Point A, Vector a) { return { A.x + a.x, A.y + a.y }; }
 	Point& operator+=(Point &A, Vector a) { return A = A + a; }
@@ -299,18 +307,18 @@ namespace myg2d {
 	Point& operator-=(Point &A, Vector a) { return A = A - a; }
 	Vector operator-(Vector a) { return { -a.x, -a.y }; }
 	Vector operator*(ld k, Vector a) { return { a.x * k, a.y * k }; }
-	Vector operator*(Vector a, ld k) { return { a.x * k, a.y * k }; }
+	Vector operator*(Vector a, ld k) { return k * a; }
 	Vector& operator*=(Vector &a, ld k) { return a = a * k; }
-	Vector operator/(Vector a, ld k) { return { a.x / k, a.y / k }; }
+	Vector operator/(Vector a, ld k) { return (1 / k) * a; }
 	Vector& operator/=(Vector &a, ld k) { return a = a / k; }
 	Vector operator+(Vector a, Vector b) { return { a.x + b.x, a.y + b.y }; }
 	Vector& operator+=(Vector &a, Vector b) { return a = a + b; }
 	Vector operator-(Vector a, Vector b) { return { a.x - b.x, a.y - b.y }; }
 	Vector& operator-=(Vector &a, Vector b) { return a = a - b; }
 	Line operator+(Line n, Vector a) {
-			n.c -= n.a * a.x + n.b * a.y;
-			return n;
-		}
+		n.c -= n.a * a.x + n.b * a.y;
+		return n;
+	}
 	Line operator-(Line n, Vector a) { return n + -a; }
 	Line& operator+=(Line &n, Vector a) { return n = n + a; }
 	Line& operator-=(Line &n, Vector a) { return n = n - a; }
