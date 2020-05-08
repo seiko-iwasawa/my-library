@@ -237,6 +237,7 @@ namespace myg2d {
 	};
 	struct Polygon : vector<Point> {
 		Polygon() {}
+		Polygon(int n) { resize(n); }
 		Polygon(vector<Point> p) { *this = p; }
 		Polygon(Triangle t) { *this = vector<Point>({ t.A, t.B, t.C }); }
 	};
@@ -330,7 +331,7 @@ namespace myg2d {
 	ld dist2(Seg s) { return dist2(s.A, s.B); }
 	ld dist(Point A, Point B) { return my_sqrt(dist2(A, B)); }
 	ld dist(Vector a) { return my_sqrt(dist2(a)); }
-	ld dist(Seg s) { return my_sqrt(dist2(s)); }
+	ld dist(Seg q) { return my_sqrt(dist2(q)); }
 	ld dist(Point A, Line n) { return n(A) / my_sqrt(n.a * n.a + n.b * n.b); }
 	ld double_s(Triangle t) { return cross_product(Vector(t.A, t.B), Vector(t.A, t.C)); }
 	ld double_s(Polygon p) {
@@ -342,9 +343,9 @@ namespace myg2d {
 	}
 	ld s(Triangle t) { return double_s(t) / 2; }
 	ld s(Polygon p) { return double_s(p) / 2; }
-	ld s(Circle q) { return PI * q.r * q.r; }
+	ld s(Circle w) { return PI * w.r * w.r; }
 	ld perimeter(Polygon p) {
-		if (p.size() <= 1) {
+		if (p.empty()) {
 			return 0;
 		}
 		ld res = dist(p.back(), p[0]);
@@ -363,26 +364,28 @@ namespace myg2d {
 
 	/* Checkers */
 	bool on(Point P, Line n) { return n.get(P) == 0; }
-	bool on(Point P, Seg s) {
-		return dot_product(Vector(P, s.A), Vector(P, s.B)) <= 0
-			&& cross_product(Vector(P, s.A), Vector(P, s.B)) == 0;
+	bool on(Point P, Seg q) {
+		return dot_product(Vector(P, q.A), Vector(P, q.B)) <= 0
+			&& cross_product(Vector(P, q.A), Vector(P, q.B)) == 0;
 	}
-	bool on(Point P, Ray f) {
-		return dot_product(f.r, Vector(f.O, P)) >= 0
-			&& cross_product(f.r, Vector(f.O, P)) == 0;
+	bool on(Point P, Ray g) {
+		return dot_product(g.r, Vector(g.O, P)) >= 0
+			&& cross_product(g.r, Vector(g.O, P)) == 0;
 	}
-	bool in(Point P, Angle a) { return P == a.O || abs(atan2(Vector(a.O, a.A), Vector(a.O, a.B))) == abs(atan2(Vector(a.O, a.A), Vector(a.O, P))) + abs(atan2(Vector(a.O, P), Vector(a.O, a.B))); }
+	bool in(Point P, Angle phi) { return P == phi.O || abs(atan2(Vector(phi.O, phi.A), Vector(phi.O, phi.B))) == abs(atan2(Vector(phi.O, phi.A), Vector(phi.O, P))) + abs(atan2(Vector(phi.O, P), Vector(phi.O, phi.B))); } // TODO: improve
 	bool in(Point P, Polygon p);
-	bool in(Point P, Triangle t) { return in(P, Polygon(t)); }
+	bool in(Point P, Triangle t) { return in(P, Polygon(t)); } // TODO: improve
+	// TODO: in_convex_hull(Point P, Polygon p)
 	bool in(Point P, Circle a) { return dist2(a.O, P) <= a.r * a.r; }
-	bool cross_segs(Seg q, Seg w) {
-		Line n(q), m(w);
+	bool cross(Seg q, Seg e) {
+		Line n(q), m(e);
 		return sign(m(q.A)) * sign(m(q.B)) <= 0
-			&& sign(n(w.A)) * sign(n(w.B)) <= 0;
-	}
+			&& sign(n(e.A)) * sign(n(e.B)) <= 0;
+	} // TODO: improve
 	bool is_left(Vector a, Vector b) { return cross_product(a, b) <= 0; } // clockwise
 	bool is_right(Vector a, Vector b) { return cross_product(a, b) >= 0; } // counterclockwise
 	bool is_collinear(Vector a, Vector b) { return cross_product(a, b) == 0; }
+	bool is_co_directed(Vector a, Vector b) { return is_collinear(a, b) && dot_product(a, b) >= 0; }
 	bool is_convex_hull(Polygon p) {
 		// mb WA
 		if (p.size() <= 2) {
@@ -402,7 +405,7 @@ namespace myg2d {
 	}
 
 	/* Buildings */
-	Point mid(Point A, Point B) { return Point((A.x + B.x) / 2, (A.y + B.y) / 2); }
+	Point mid(Point A, Point B) { return { (A.x + B.x) / 2, (A.y + B.y) / 2 }; }
 	Vector resize(Vector a, ld k) { return a / dist(a) * k; }
 	Vector normal(Vector a) { return { -a.y, a.x }; }
 	Vector normal(Line n) { return Vector(n.a, n.b); }
@@ -410,37 +413,19 @@ namespace myg2d {
 	Point perpendicular_base(Point A, Line n) { return A + perpendicular(A, n); }
 	Point symmetry(Point A, Line n) { return A + 2 * perpendicular(A, n); }
 	Point bissector(Point A, Point O, Point B) {
-		// can be upgrading
 		ld a = dist(A, B);
 		ld b = dist(O, B);
 		ld c = dist(O, A);
 		return A + c / (b * (1 + c / b)) * Vector(A, B);
 	}
+	// lines 'n' and 'm' must intersect exactly at the one point
 	Point good_intersect(Line n, Line m) {
-		/*
-		lines 'n' and 'm' must intersect exactly at the one point
-		*/
-#ifdef DEBUG
-		assert(n.b * m.a != n.a * m.b);
-#endif // DEBUG
 		ld y = (n.a * m.c - n.c * m.a) / (n.b * m.a - n.a * m.b);
 		ld x = (n.b * m.c - n.c * m.b) / (n.a * m.b - n.b * m.a);
-		return { Point(x, y) };
+		return Point(x, y);
 	}
 	vector<Point> intersect(Line n, Line m) {
-		if (n.b * m.a == n.a * m.b) {
-			if (n.a * m.c == n.c * m.a && n.b * m.c == n.c * m.b) {
-				return vector<Point>(2);
-			}
-			else {
-				return {};
-			}
-		}
-		else {
-			ld y = (n.a * m.c - n.c * m.a) / (n.b * m.a - n.a * m.b);
-			ld x = (n.b * m.c - n.c * m.b) / (n.a * m.b - n.b * m.a);
-			return { Point(x, y) };
-		}
+		return is_collinear(n.dir_vec(), m.dir_vec()) ? n == m ? vector<Point>(2) : vector<Point>(0) : vector<Point>({ good_intersect(n, m) });
 	}
 	vector<Point> intersect(Circle a, Circle b) {
 		if (a.r < b.r) {
@@ -535,6 +520,7 @@ namespace myg2d {
 		return Circle(O, abs(dist(O, A)));
 	}
 	Polygon convex_hull(Polygon p);
+	Polygon minkovski_sum(Polygon p, Polygon r);
 
 
 	/* Algorithms */
@@ -555,6 +541,30 @@ namespace myg2d {
 			}
 		}
 		return res;
+	}
+	Polygon convex_hull(Polygon p) {
+		sort(p.begin(), p.end(), [](Point A, Point B) { return make_pair(A) < make_pair(B); });
+		p.erase(unique(p.begin(), p.end()), p.end());
+		sort(p.begin() + 1, p.end(), [&](Point A, Point B) {
+			if (is_collinear(Vector(p[0], A), Vector(p[0], B))) {
+				return dist(Vector(p[0], A)) > dist(Vector(p[0], B));
+			}
+			else {
+				return !is_left(Vector(p[0], A), Vector(p[0], B));
+			}
+			});
+		Polygon ch;
+		for (int i = 0; i < p.size(); ++i) {
+			if (i >= 2 && is_collinear(Vector(p[0], p[i]), Vector(p[0], p[i - 1]))) {
+				continue;
+			}
+			while (ch.size() >= 2
+				&& is_left(Vector(ch[ch.size() - 2], ch.back()), Vector(ch.back(), p[i]))) {
+				ch.pop_back();
+			}
+			ch.push_back(p[i]);
+		}
+		return ch;
 	}
 	Polygon minkovski_sum(Polygon P, Polygon Q) {
 		assert(false);
@@ -580,30 +590,6 @@ namespace myg2d {
 		return res;
 	}
 	Polygon operator+(Polygon P, Polygon Q) { return minkovski_sum(P, Q); }
-	Polygon convex_hull(Polygon p) {
-		sort(p.begin(), p.end(), [](Point A, Point B) { return make_pair(A) < make_pair(B); });
-		p.erase(unique(p.begin(), p.end()), p.end());
-		sort(p.begin() + 1, p.end(), [&](Point A, Point B) {
-			if (is_collinear(Vector(p[0], A), Vector(p[0], B))) {
-				return dist(Vector(p[0], A)) > dist(Vector(p[0], B));
-			}
-			else {
-				return !is_left(Vector(p[0], A), Vector(p[0], B));
-			}
-			});
-		Polygon ch;
-		for (int i = 0; i < p.size(); ++i) {
-			if (i >= 2 && is_collinear(Vector(p[0], p[i]), Vector(p[0], p[i - 1]))) {
-				continue;
-			}
-			while (ch.size() >= 2
-				&& is_left(Vector(ch[ch.size() - 2], ch.back()), Vector(ch.back(), p[i]))) {
-				ch.pop_back();
-			}
-			ch.push_back(p[i]);
-		}
-		return ch;
-	}
 }
 
 using namespace myg2d;
