@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <queue>
+#include <set>
 
 using namespace std;
 
@@ -55,5 +56,19 @@ void dijkstra2(int start) {
 				}
 			}
 		}
+	}
+}
+
+void cool_dijkstra2(int start) {
+	// Complexity: O((N+M)*logN)
+	fill(used, used + N, false);
+	fill(dist, dist + N, INF);
+	set<pair<int, int>> f({dist[start] = 0, start});
+	for (auto cur = f.begin(); cur != f.end(); f.erase(f.begin()), cur = f.begin()) {
+		int v = cur->second, w = cur->first;
+		if (!used[v] && (used[v] = true))
+			for (Edge e : g[v])
+				if (!used[e.u])
+					f.insert({ dist[e.u] = min(dist[e.u], w + e.w), e.u });
 	}
 }
