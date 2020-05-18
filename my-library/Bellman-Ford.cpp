@@ -1,5 +1,3 @@
-// unchecked
-
 #include <iostream>
 #include <algorithm>
 #include <queue>
@@ -8,7 +6,7 @@ using namespace std;
 
 const int N = 1e3;
 const int M = 1e4;
-const int INF = 1e9;
+const int INF = 1e9 + 7;
 
 struct Edge { int v, u, w; } edges[M];
 vector<Edge> g[N];
@@ -76,7 +74,7 @@ void bellman_ford4(int start) {
 		q.pop();
 		in_q[v] = false;
 		for (Edge e : g[v]) {
-			if (dist[e.u] > dist[e.v] + e.w) {
+			if (dist[e.u] > max(-INF, dist[e.v] + e.w)) {
 				dist[e.u] = max(-INF, dist[e.v] + e.w);
 				if (!in_q[e.u]) {
 					q.push(e.u);
