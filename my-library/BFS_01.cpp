@@ -20,7 +20,7 @@ void bfs_01(int start) {
 		d.pop_front();
 		for (Edge e : g[v]) {
 			if (dist[e.u] > dist[e.v] + e.w) {
-				if (dist[e.u] == dist[e.v]) {
+				if (e.w == 0) {
 					d.push_front(e.u);
 				}
 				else {
