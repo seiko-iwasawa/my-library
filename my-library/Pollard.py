@@ -1,3 +1,5 @@
+# unchecked
+
 import random
 
 def gcd(a, b):
