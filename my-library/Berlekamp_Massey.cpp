@@ -38,6 +38,8 @@ vector<ld> Berlekamp_Massey(vector<T> seq) {
 	return res;
 }
 
+// stresstest
+
 #define int long long
 
 vector<int> originally_r;
