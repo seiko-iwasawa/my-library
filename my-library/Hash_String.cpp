@@ -37,6 +37,7 @@ string s;
 Hash pref[N];
 
 void build_pref() {
+	// Complexity: O(len(s))
 	pref[0] = { 0, 0 };
 	for (int i = 1; i <= s.size(); ++i) {
 		pref[i] = pref[i - 1] * P + Hash({ s[i - 1], s[i - 1] });
@@ -44,6 +45,7 @@ void build_pref() {
 }
 
 Hash get_substr_hash(int i, int j) {
+	// Complexity: O(1)
 	return pref[j] - pref[i] * p[j - i];
 }
 

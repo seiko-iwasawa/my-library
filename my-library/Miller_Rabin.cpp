@@ -38,6 +38,7 @@ int qp(int a, int k, int mod) {
 }
 
 bool miller_rabin_test(int a, int n) {
+	// Complexity: O(log(n)**2)
 	if (a >= n) {
 		return true;
 	}

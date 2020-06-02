@@ -26,6 +26,7 @@ mt19937 rnd(239);
 int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 
 int pollard(int n) {
+	// Complexity: O(n**(1/4))
 	if (n % 2 == 0) {
 		return 2;
 	}
