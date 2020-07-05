@@ -6,11 +6,11 @@ using namespace std;
 
 const int N = 1e5;
 
-struct Edge { int v, u, w; };
+struct Edge { int v, u, w; }; // w (weight) is 0 or 1
 vector<Edge> g[N];
 int dist[N];
 
-void bfs_01(int start) {
+void bfs01(int start) {
 	// Complexity: O(M)
 	fill(dist, dist + N, N);
 	deque<int> d({start});
