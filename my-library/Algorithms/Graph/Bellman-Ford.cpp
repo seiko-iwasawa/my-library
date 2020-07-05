@@ -13,11 +13,15 @@ vector<Edge> g[N];
 
 int dist[N];
 
-void bellman_ford1(int start) {
-	// Complexity: O(N*M)
+void init_dist(int start) {
 	fill(dist, dist + N, INF);
 	dist[start] = 0;
-	for (int _ = 0; _ < N; ++_) {
+}
+
+void bellman_ford1(int start) {
+	// Complexity: O(N*M)
+	init_dist(start);
+	for (int i = 0; i < N; ++i) {
 		for (Edge *e = edges; e < edges + M; ++e) {
 			dist[e->u] = min(dist[e->u], max(-INF, dist[e->v] + e->w));
 		}
@@ -27,9 +31,8 @@ void bellman_ford1(int start) {
 void bellman_ford2(int start) {
 	// Complexity: O(max(L_v)*M),
 	// where L_v is length of the shortest of the lightest paths from start to v
-	fill(dist, dist + N, INF);
-	dist[start] = 0;
-	for (int _ = 0; _ < N; ++_) {
+	init_dist(start);
+	for (int i = 0; i < N; ++i) {
 		bool flag = false;
 		for (Edge *e = edges; e < edges + M; ++e) {
 			if (dist[e->u] > max(-INF, dist[e->v] + e->w)) {
@@ -47,9 +50,8 @@ void bellman_ford2(int start) {
 void bellman_ford3(int start) {
 	// Complexity: O(max(L_v)*M),
 	// where L_v is length of the shortest of the lightest paths from start to v
-	fill(dist, dist + N, INF);
-	dist[start] = 0;
-	for (int _ = 0, flag = true; _ < N && flag; ++_, flag = false) {
+	init_dist(start);
+	for (int i = 0, flag = true; i < N && flag; ++i, flag = false) {
 		for (Edge *e = edges; e < edges + M; ++e) {
 			flag |= (dist[e->u] != (dist[e->u] = min(dist[e->u], max(-INF, dist[e->v] + e->w))));
 		}
@@ -64,9 +66,8 @@ bool in_q[N];
 // the fastest implementation
 void bellman_ford4(int start) {
 	// Complexity: O(IDK) :D
-	fill(dist, dist + N, INF);
+	init_dist(start);
 	fill(in_q, in_q + N, false);
-	dist[start] = 0;
 	queue<int> q({ start });
 	in_q[start] = true;
 	while (!q.empty()) {
