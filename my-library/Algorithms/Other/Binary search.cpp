@@ -7,8 +7,12 @@ const int N = 1e5;
 
 int a[N];
 
+/*
+Returns min i=0..n-1, such that a[i] >= x in sorted array a or N if it does not exist
+Additional memory: O(1)
+Time complexity: O(logN)
+*/
 int lower_bound(int x) {
-	// Complexity: O(logN)
 	int l = -1, r = N;
 	while (r - l > 1) {
 		int mid = l + r >> 1;
@@ -19,8 +23,13 @@ int lower_bound(int x) {
 
 const double EPS = 1e-9;
 
+/*
+Returns y such that x==y*y±EPS
+x must be non-negative
+Additional memory: O(1)
+Time complexity: O(log(x/EPS))
+*/
 double sqrt(int x) {
-	// Complexity: O(log(x/EPS))
 	assert(x >= 0);
 	double l = 0, r = x;
 	while (r - l > EPS) {
