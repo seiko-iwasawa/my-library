@@ -28,17 +28,21 @@ void push_back(int x) {
 }
 
 void pop_front() {
+	assert(!empty());
 	++first;
 }
 
 void pop_back() {
+	assert(!empty());
 	--last;
 }
 
 int front() {
+	assert(!empty());
 	return *first;
 }
 
 int back() {
+	assert(!empty());
 	return *(last - 1);
 }
