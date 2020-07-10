@@ -15,12 +15,12 @@ int gcd_ext(int a, int b, int &x, int &y) {
 	}
 }
 
+/*
+Returns min x>=0 such that x%n==a and x%m==b or -1 if none exist
+Addiotional memory: O(1)
+Time complexity: O(log(n+m))
+*/
 int chreth(int n, int a, int m, int b) {
-	/*
-	return min x >= 0 such that
-	x % n == a
-	x % m == b
-	*/
 	int k1, k2;
 	int d = gcd_ext(n, m, k1, k2);
 	if ((b - a) % d != 0) {
@@ -30,6 +30,8 @@ int chreth(int n, int a, int m, int b) {
 	int x = ((k1 * (b - a) / d * n + a) % mod + mod) % mod;
 	return x;
 }
+
+/*=================================STRESSTEST=================================*/
 
 int n, a, m, b;
 
@@ -71,6 +73,4 @@ void stresstest() {
 
 int main() {
 	stresstest();
-	cin >> n >> a >> m >> b;
-	cout << chreth(n, a, m, b) << '\n';
 }
