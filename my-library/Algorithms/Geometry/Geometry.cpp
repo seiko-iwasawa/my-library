@@ -323,7 +323,7 @@ struct Triangle {
 struct Polygon : vector<Point> {
   Polygon() {}
   Polygon(int n) { resize(n); }
-  Polygon(vector<Point> p) { *this = p; }
+  Polygon(vector<Point> p) : vector<Point>(p) {}
   Polygon(Triangle t) { *this = vector<Point>({t.A, t.B, t.C}); }
 };
 
