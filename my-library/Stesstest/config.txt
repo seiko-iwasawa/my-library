@@ -1,0 +1,5 @@
+test=...\test.txt
+my solve=...\A.exe
+my ans=...\my_ans.txt
+right solve=...\B.exe
+right ans=...\right_ans.txt
