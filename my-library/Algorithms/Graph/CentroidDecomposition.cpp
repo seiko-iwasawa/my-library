@@ -39,18 +39,3 @@ int build(int v, int lst = -1) {
   }
   return c;
 }
-
-int main() {
-  int n;
-  cin >> n;
-  for (int i = 1; i < n; i++) {
-    int a, b;
-    cin >> a >> b;
-    a--;
-    b--;
-    g[a].push_back(b);
-    g[b].push_back(a);
-  }
-  int s = build(0);
-  return 0;
-}

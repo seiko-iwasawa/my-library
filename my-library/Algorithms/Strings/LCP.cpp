@@ -41,7 +41,8 @@ void cnt_sort() {
 
 void build(string s) {
   n = s.size();
-  vector<pair<char, int>> a(n);
+  vector<int> arr();
+  vector<pair<char, int>> a;
   for (int i = 0; i < n; i++) a[i] = {s[i], i};
   sort(a.begin(), a.end());
   p[0] = a[0].second;
@@ -71,7 +72,7 @@ void build(string s) {
   build_lcp(s);
 }
 
-int main() {
+void solve() {
   string s;
   cin >> s;
   s += "$";
@@ -79,5 +80,4 @@ int main() {
   for (int i = 1; i < s.size(); i++) cout << p[i] << " ";
   cout << endl;
   for (int i = 1; i < s.size(); i++) cout << lcp[i] << " ";
-  return 0;
 }

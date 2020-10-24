@@ -127,4 +127,4 @@ Node *fast_erase(Node *t, int ex) {
   }
 }
 
-int main() { empty_node = new Node; }
+void solve() { empty_node = new Node; }

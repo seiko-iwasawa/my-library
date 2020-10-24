@@ -54,9 +54,3 @@ Hash get_substr_hash(int i, int j) {
   // Complexity: O(1)
   return pref[j] - pref[i] * p[j - i];
 }
-
-int main() {
-  build_p();
-  cin >> s;
-  build_pref();
-}

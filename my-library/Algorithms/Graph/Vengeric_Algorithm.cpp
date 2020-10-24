@@ -23,18 +23,16 @@ int get_ans() {
   return res;
 }
 
-int main() {
-  freopen("assignment.in", "r", stdin);
-  freopen("assignment.out", "w", stdout);
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  cout.tie(NULL);
+void scan() {
   cin >> n;
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       cin >> c[i][j];
     }
   }
+}
+
+void solve() {
   fill(ans_row, ans_row + n, -1);
   fill(ans_col, ans_col + n, -1);
   for (int k = 0; k < n; ++k) {
@@ -93,6 +91,4 @@ int main() {
   for (int i = 0; i < n; ++i) {
     cout << i + 1 << ' ' << ans_row[i] + 1 << '\n';
   }
-  // system("pause");
-  return 0;
 }

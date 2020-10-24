@@ -68,11 +68,3 @@ bool is_prime(int n) {
     return true;
   }
 }
-
-signed main() {
-  while (true) {
-    int n;
-    cin >> n;
-    cout << (is_prime(n) ? "YES\n" : "NO\n");
-  }
-}

@@ -38,3 +38,7 @@ double sqrt(int x) {
   }
   return l;
 }
+
+int main() {
+	return 0;
+}

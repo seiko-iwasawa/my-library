@@ -69,4 +69,4 @@ pair<Node *, Node *> split(Node *t, int k) {
   }
 }
 
-int main() { empty_node = new Node; }
+void solve() { empty_node = new Node; }

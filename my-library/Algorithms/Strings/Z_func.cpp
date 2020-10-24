@@ -24,8 +24,3 @@ void build_zf() {
     }
   }
 }
-
-int main() {
-  s = "abcaabcab";
-  build_zf();
-}

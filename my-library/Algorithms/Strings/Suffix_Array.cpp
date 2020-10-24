@@ -57,11 +57,10 @@ void build(string s) {
   }
 }
 
-int main() {
+void solve() {
   string s;
   cin >> s;
   s += "$";
   build(s);
   for (int i = 1; i < s.size(); i++) cout << p[i] << " ";
-  return 0;
 }
