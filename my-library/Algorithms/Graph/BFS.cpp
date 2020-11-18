@@ -11,7 +11,7 @@ int dist[N];
 
 /*
 Calculates array dist
-dist[v] is the distance beetween start and v
+dist[v] is the distance between start and v
 dist[v] is N if v isn't reachable for start
 Additional memory: O(N)
 Time complexity: O(M)

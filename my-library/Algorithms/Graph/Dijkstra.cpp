@@ -17,12 +17,18 @@ vector<Edge> g[N];
 bool used[N];
 int dist[N];
 
+/*
+Calculate array dist
+dist[v] is distance between start and v
+weights of edges must be non-negative
+Additional memory: O(N)
+Time complexity: O(N*N+M)
+*/
 void dijkstra1(int start) {
-  // Complexity: O(N*N+M)
   fill(used, used + N, false);
   fill(dist, dist + N, INF);
   dist[start] = 0;
-  for (int _ = 0; _ < N; ++_) {
+  for (int i = 0; i < N; ++i) {
     int v = find(used, used + N, false) - used;
     for (int u = 0; u < N; ++u) {
       if (!used[u] && dist[v] > dist[u]) {
@@ -39,36 +45,30 @@ void dijkstra1(int start) {
   }
 }
 
+/*
+Calculate array dist
+dist[v] is distance between start and v
+weights of edges must be non-negative
+Additional memory: O(1)
+Time complexity: O((N+M)logN)
+*/
 void dijkstra2(int start) {
-  // Complexity: O((N+M)*logN)
-  fill(used, used + N, false);
   fill(dist, dist + N, INF);
-  priority_queue<pair<int, int>> q({dist[start] = 0, start});
+  priority_queue<pair<int, int>, vector<pair<int, int>>,
+                 greater<pair<int, int>>>
+      q;
+  dist[start] = 0;
+  q.push({dist[start], start});
   while (!q.empty()) {
-    int v = q.top().first;
+    int v = q.top().second, d = q.top().first;
     q.pop();
-    if (!used[v]) {
-      used[v] = true;
+    if (d == dist[v]) {
       for (Edge e : g[v]) {
-        if (!used[e.u] && dist[e.u] > dist[e.v] + e.w) {
+        if (dist[e.u] > dist[e.v] + e.w) {
           dist[e.u] = dist[e.v] + e.w;
           q.push({dist[e.u], e.v});
         }
       }
     }
-  }
-}
-
-void cool_dijkstra2(int start) {
-  // Complexity: O((N+M)*logN)
-  fill(used, used + N, false);
-  fill(dist, dist + N, INF);
-  set<pair<int, int>> f({dist[start] = 0, start});
-  for (auto cur = f.begin(); cur != f.end();
-       f.erase(f.begin()), cur = f.begin()) {
-    int v = cur->second, w = cur->first;
-    if (!used[v] && (used[v] = true))
-      for (Edge e : g[v])
-        if (!used[e.u]) f.insert({dist[e.u] = min(dist[e.u], w + e.w), e.u});
   }
 }

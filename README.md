@@ -1,6 +1,8 @@
 # my-library
 This is a library with many things for competitive programming.
 
+// TODO lib's rules
+
 // TODO title
 
 TODO:

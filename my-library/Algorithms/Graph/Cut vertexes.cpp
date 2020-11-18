@@ -31,8 +31,13 @@ void dfs(int v, int last = -1) {
   }
 }
 
+/*
+Builds cut vertexes
+is_cut_v[v] is true if v is a cut vertex, false otherwise
+Additional memory: O(N)
+Time complexity: O(N+M)
+*/
 void build_cut_v() {
-  // Complexity: O(N+M)
   fill(is_cut_v, is_cut_v + N, false);
   ct = 1;
   for (int v = 0; v < N; ++v) {

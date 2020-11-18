@@ -17,7 +17,7 @@ int dist[N];
 
 /*
 Calculates array dist
-dist[v] is the distance beetween start and v
+dist[v] is the distance between start and v
 dist[v] is INF if v isn't reachable for start
 Additional memory: O(1)
 Time complexity: O(N*M)
@@ -36,7 +36,7 @@ bool in_q[N];
 
 /*
 Calculates array dist
-dist[v] is the distance beetween start and v
+dist[v] is the distance between start and v
 dist[v] is INF if v isn't reachable for start
 Additional memory: O(N)
 Time complexity: O(N*M), but in practice, works VERY fast
