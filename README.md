@@ -2,7 +2,6 @@
 This is a library with many things for competitive programming.
 
 TODO:
-* dinic
 * mincut
 * mincost
 * persistent seg tree
