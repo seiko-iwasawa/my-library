@@ -16,11 +16,14 @@
 #include <string>
 #include <vector>
 
+#define __int128 short // delete this line for correct work
+
 using namespace std;
 
 const int K = 16;
 const int N = 2e5 / K + 7;
 const int C = 77;
+
 
 int n, m;
 __int128 a[N], b[N], c[4 * N];
