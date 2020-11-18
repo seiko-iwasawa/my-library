@@ -12,8 +12,15 @@ struct Edge {
 vector<Edge> g[N];
 int dist[N];
 
+/*
+Calculates array dist
+dist[v] is the distance beetween start and v
+dist[v] is N if v isn't reachable for start
+weights of edges is 0 or 1
+Additional memory: O(N)
+Time complexity: O(M)
+*/
 void bfs01(int start) {
-  // Complexity: O(M)
   fill(dist, dist + N, N);
   deque<int> d({start});
   dist[start] = 0;

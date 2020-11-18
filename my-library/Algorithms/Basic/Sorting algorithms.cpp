@@ -7,6 +7,7 @@
 using namespace std;
 
 /*
+There are many ways to sort an array here
 The term 'stable sort' means sort doesn't change the order of a[i] and a[j] if
 a[i] == a[j]
 */
@@ -147,7 +148,6 @@ void merge_sort3() {
 }  // namespace merge_sort
 
 namespace counting_sort {
-// 0 <= a[i] < A
 
 const int A = 1000;
 
@@ -164,6 +164,7 @@ void clear() {
 
 /*
 Stable sort
+0 <= a[i] < A
 Additional memory: O(n+A)
 Time complexity: O(n+A)
 */
@@ -181,7 +182,6 @@ void counting_sort() {
 }  // namespace counting_sort
 
 namespace fast_sort {
-// 0 <= a[i] < 4**K
 
 const int K = 15;
 const int SZ = 1 << K;
@@ -199,6 +199,7 @@ void clear() {
 
 /*
 Stable sort
+0 <= a[i] < 4**K
 Additional memory: O(n+2**K)
 Time complexity: O(n+2**K)
 */
@@ -221,4 +222,4 @@ void fast_sort() {
     }
   }
 }
-}
+}  // namespace fast_sort

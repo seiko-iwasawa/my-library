@@ -15,14 +15,16 @@ vector<Edge> g[N];
 
 int dist[N];
 
-void init_dist(int start) {
+/*
+Calculates array dist
+dist[v] is the distance beetween start and v
+dist[v] is INF if v isn't reachable for start
+Additional memory: O(1)
+Time complexity: O(N*M)
+*/
+void bellman_ford(int start) {
   fill(dist, dist + N, INF);
   dist[start] = 0;
-}
-
-void bellman_ford1(int start) {
-  // Complexity: O(N*M)
-  init_dist(start);
   for (int i = 0; i < N; ++i) {
     for (Edge *e = edges; e < edges + M; ++e) {
       dist[e->u] = min(dist[e->u], max(-INF, dist[e->v] + e->w));
@@ -30,46 +32,18 @@ void bellman_ford1(int start) {
   }
 }
 
-void bellman_ford2(int start) {
-  // Complexity: O(max(L_v)*M),
-  // where L_v is length of the shortest of the lightest paths from start to v
-  init_dist(start);
-  for (int i = 0; i < N; ++i) {
-    bool flag = false;
-    for (Edge *e = edges; e < edges + M; ++e) {
-      if (dist[e->u] > max(-INF, dist[e->v] + e->w)) {
-        dist[e->u] = max(-INF, dist[e->v] + e->w);
-        flag = true;
-      }
-    }
-    if (!flag) {
-      break;
-    }
-  }
-}
-
-// bellman_ford3 is the same as bellman_ford2 but shorter
-void bellman_ford3(int start) {
-  // Complexity: O(max(L_v)*M),
-  // where L_v is length of the shortest of the lightest paths from start to v
-  init_dist(start);
-  for (int i = 0, flag = true; i < N && flag; ++i, flag = false) {
-    for (Edge *e = edges; e < edges + M; ++e) {
-      flag |= (dist[e->u] !=
-               (dist[e->u] = min(dist[e->u], max(-INF, dist[e->v] + e->w))));
-    }
-  }
-}
-
-// bellman_ford2 and bellman_ford3 will be twice as faster if you random shuffle
-// edges In a random graph, max(L_v) isn't very big
-
 bool in_q[N];
 
-// the fastest implementation
-void bellman_ford4(int start) {
-  // Complexity: O(IDK) :D
-  init_dist(start);
+/*
+Calculates array dist
+dist[v] is the distance beetween start and v
+dist[v] is INF if v isn't reachable for start
+Additional memory: O(N)
+Time complexity: O(N*M), but in practice, works VERY fast
+*/
+void bellman_ford_queue(int start) {
+  fill(dist, dist + N, INF);
+  dist[start] = 0;
   fill(in_q, in_q + N, false);
   queue<int> q({start});
   in_q[start] = true;

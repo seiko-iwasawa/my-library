@@ -7,20 +7,26 @@ using namespace std;
 const int N = 1e5;
 
 vector<int> g[N];
-bool used[N];
+int dist[N];
 
+/*
+Calculates array dist
+dist[v] is the distance beetween start and v
+dist[v] is N if v isn't reachable for start
+Additional memory: O(N)
+Time complexity: O(M)
+*/
 void bfs(int start) {
-  // Complexity: O(M)
-  fill(used, used + N, false);
+  fill(dist, dist + N, N);
   queue<int> q({start});
-  used[start] = true;
+  dist[start] = 0;
   while (!q.empty()) {
     int v = q.front();
     q.pop();
     for (int u : g[v]) {
-      if (!used[u]) {
+      if (dist[u] == N) {
         q.push(u);
-        used[u] = true;
+        dist[u] = dist[v] + 1;
       }
     }
   }

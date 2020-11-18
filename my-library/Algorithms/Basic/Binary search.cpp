@@ -10,7 +10,9 @@ int a[N];
 
 /*
 Returns min i=0..n-1, such that a[i] >= x in sorted array a or n if it does not
-exist Additional memory: O(1) Time complexity: O(log(n))
+exist
+Additional memory: O(1)
+Time complexity: O(log(n))
 */
 int lower_bound(int x) {
   int l = -1, r = n;

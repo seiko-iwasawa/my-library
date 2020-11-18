@@ -1,6 +1,8 @@
 # my-library
 This is a library with many things for competitive programming.
 
+// TODO title
+
 TODO:
 * mincut
 * mincost
@@ -38,3 +40,5 @@ TODO:
 * convex hull trick
 * finish up treap
 * matrix
+* stable_selection_sort, quick_sort, radix_sort
+* improve geometry
