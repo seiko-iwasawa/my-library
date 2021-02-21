@@ -21,6 +21,7 @@ void dfs(int v) {
       assert(false);
     }
   }
+  used[v] = 2;
   topsort.push_back(v);
 }
 
