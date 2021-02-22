@@ -1,9 +1,19 @@
 # my-library
 This is a library with many things for competitive programming.
 
-// TODO lib's rules
+## Lib's rules
 
-// TODO title
+Formatting: Google
+
+Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way.
+
+## Title
+
+### Algorithms
+
+### Data Structures
+
+### Math
 
 TODO:
 * mincut
