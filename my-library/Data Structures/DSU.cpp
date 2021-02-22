@@ -8,20 +8,13 @@ const int N = 1e5;
 int par[N], sz[N];
 
 void build() {
-  // Complexity: O(N)
   iota(par, par + N, 0);
   fill(sz, sz + N, 1);
 }
 
-// a is the inverse Ackerman function
-
-int find(int x) {
-  // Complexity: O(a(N))
-  return x == par[x] ? x : par[x] = find(par[x]);
-}
+int find(int x) { return x == par[x] ? x : par[x] = find(par[x]); }
 
 bool join(int x, int y) {
-  // Complexity: O(a(N))
   x = find(x);
   y = find(y);
   if (x != y) {

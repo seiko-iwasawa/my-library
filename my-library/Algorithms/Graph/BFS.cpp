@@ -9,13 +9,6 @@ const int N = 1e5;
 vector<int> g[N];
 int dist[N];
 
-/*
-Calculates array dist
-dist[v] is the distance between start and v
-dist[v] is N if v isn't reachable for start
-Additional memory: O(N)
-Time complexity: O(M)
-*/
 void bfs(int start) {
   fill(dist, dist + N, N);
   queue<int> q({start});

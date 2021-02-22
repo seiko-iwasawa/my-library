@@ -9,11 +9,6 @@ int dif(int x, int y) { return x - y < 0 ? x - y + MOD : x - y; }
 int mul(int x, int y) { return x * 1LL * y % MOD; }
 int add(int &x, int y) { return x = sum(x, y); }
 int sub(int &x, int y) { return x = dif(x, y); }
-/*
-Returns x**k (qp - quick power)
-Additional memory: O(1)
-Time complexity: O(log(k))
-*/
 int qp(int x, int k) {
   int res = 1;
   do {

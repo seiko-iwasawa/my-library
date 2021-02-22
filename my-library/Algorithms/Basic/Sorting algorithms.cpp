@@ -6,37 +6,15 @@
 
 using namespace std;
 
-/*
-There are many ways to sort an array here
-The term 'stable sort' means sort doesn't change the order of a[i] and a[j] if
-a[i] == a[j]
-*/
-
 const int N = 1e5;
 
 int n;
 int a[N];
 
-/*
-Unstable sort
-it is best to use it
-Additional memory: O(log(n)) or O(1)
-Time complexity: O(n*log(n))
-*/
 void std_sort() { sort(a, a + n); }
 
-/*
-Stable sort
-Additional memory: O(n) or O(log(n))
-Time complexity: O(n*log(n)) or O(n*log(n)**2)
-*/
 void std_stable_sort() { stable_sort(a, a + n); }
 
-/*
-Quadratic stable sort
-Additional memory: O(1)
-Time complexity: O(n**2)
-*/
 void bubble_sort() {
   for (int it = 0; it < n; ++it) {
     for (int i = 0; i < n - 1; ++i) {
@@ -47,11 +25,6 @@ void bubble_sort() {
   }
 }
 
-/*
-Quadratic stable sort
-Additional memory: O(1)
-Time complexity: O(n**2)
-*/
 void insertion_sort() {
   for (int i = 0; i < n; ++i) {
     int j = i;
@@ -62,11 +35,6 @@ void insertion_sort() {
   }
 }
 
-/*
-Quadratic unstable sort
-Additional memory: O(1)
-Time complexity: O(n**2)
-*/
 void unstable_selection_sort() {
   for (int i = 0; i < n; ++i) {
     swap(a[i], *min_element(a + i, a + n));
@@ -75,11 +43,6 @@ void unstable_selection_sort() {
 
 // TODO stable_selection_sort, quick_sort, radix_sort
 
-/*
-Unstable sort
-Additional memory: O(1)
-Time complexity: O(n*log(n))
-*/
 void heap_sort() {
   make_heap(a, a + n);
   for (int i = 0; i < n; ++i) {
@@ -88,11 +51,7 @@ void heap_sort() {
 }
 
 namespace merge_sort {
-/*
-Stable sort
-Additional memory: O(n)
-Time complexity: O(n*log(n))
-*/
+
 vector<int> merge_sort1(vector<int> arr) {
   if (arr.size() == 1) {
     return arr;
@@ -110,11 +69,6 @@ vector<int> merge_sort1(vector<int> arr) {
 
 int new_a[N];
 
-/*
-Stable sort
-Additional memory: O(n)
-Time complexity: O(n*log(n))
-*/
 void merge_sort2() {
   for (int k = 1; k < n; k *= 2) {
     for (int i = 0; i < n;) {
@@ -133,11 +87,6 @@ void merge_sort2() {
   }
 }
 
-/*
-Stable sort
-Additional memory: O(1)
-Time complexity: O(n*log(n))
-*/
 void merge_sort3() {
   for (int k = 1; k < n; k *= 2) {
     for (int i = 0; i < n; i += 2 * k) {
@@ -162,12 +111,6 @@ void clear() {
   }
 }
 
-/*
-Stable sort
-0 <= a[i] < A
-Additional memory: O(n+A)
-Time complexity: O(n+A)
-*/
 void counting_sort() {
   clear();
   for (int i = 0; i < n; ++i) {
@@ -197,12 +140,6 @@ void clear() {
   }
 }
 
-/*
-Stable sort
-0 <= a[i] < 4**K
-Additional memory: O(n+2**K)
-Time complexity: O(n+2**K)
-*/
 void fast_sort() {
   clear();
   for (int i = 0; i < n; ++i) {

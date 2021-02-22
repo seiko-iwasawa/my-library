@@ -20,7 +20,6 @@ bool check_ans() {
 }
 
 void gauss_mod2() {
-  // Complexity: O(N**3/64)
   for (int i = 0; i < N; ++i) {
     int j;
     for (j = 0; j < N && (used[j] || !eq[j][i]); ++j)

@@ -10,7 +10,7 @@ def relax(a):
         d = gcd(d, x)
     if d:
         for i in range(len(a)):
-			a[i] //= d
+            a[i] //= d
 
 
 N = int(input())

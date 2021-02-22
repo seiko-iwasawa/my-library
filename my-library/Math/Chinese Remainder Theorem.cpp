@@ -14,11 +14,6 @@ int gcd_ext(int a, int b, int &x, int &y) {
   }
 }
 
-/*
-Returns min x>=0 such that x%n==a and x%m==b or -1 if none exist
-Addiotional memory: O(1)
-Time complexity: O(log(n+m))
-*/
 int chreth(int n, int a, int m, int b) {
   int k1, k2;
   int d = gcd_ext(n, m, k1, k2);

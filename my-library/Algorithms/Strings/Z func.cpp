@@ -9,7 +9,6 @@ string s;
 int zf[N];
 
 void build_zf() {
-  // Complexity: O(len(s))
   int n = s.size();
   fill(zf, zf + n, 0);
   for (int i = 1, l = 0, r = -1; i < n; ++i) {

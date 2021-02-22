@@ -44,3 +44,4 @@ TODO:
 * matrix
 * stable_selection_sort, quick_sort, radix_sort
 * improve geometry
+* seg tree for sum with alternating signs

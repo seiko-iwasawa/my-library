@@ -24,7 +24,6 @@ struct Block {
   void add(int x) { delta += x; }
 
   void simplify() {
-    // Complexity: O(K)
     if (reversed) {
       std::reverse(b, b + k);
       reversed = false;
@@ -36,7 +35,6 @@ struct Block {
   }
 
   void init(int *first, int _k) {
-    // Complexity: O(K)
     k = _k;
     memcpy(b, first, k * sizeof(b[0]));
     reversed = false;
@@ -50,7 +48,6 @@ struct Block {
 int m;
 
 void build() {
-  // Complexity: O(N)
   m = 0;
   for (int i = 0; i < n; i += K, ++m) {
     blocks[m].init(a + i, min(K, n - i));
@@ -58,7 +55,6 @@ void build() {
 }
 
 void shift_right(int j) {
-  // Complexity: O(M)
   for (int i = m; i > j; --i) {
     swap(blocks[i - 1], blocks[i]);
   }
@@ -66,7 +62,6 @@ void shift_right(int j) {
 }
 
 int split(int i) {
-  // Complexity: O(M+K)
   if (i == n) {
     return m;
   }
@@ -86,14 +81,12 @@ int split(int i) {
 }
 
 void add(int i, int j, int delta) {
-  // Complexity: O(M+K)
   for (int L = split(i), R = split(j); L < R; ++L) {
     blocks[L].add(delta);
   }
 }
 
 void reverse(int i, int j) {
-  // Complexity: O(M+K)
   int L = split(i), R = split(j);
   reverse(blocks + L, blocks + R);
   for (; L < R; ++L) {
@@ -102,7 +95,6 @@ void reverse(int i, int j) {
 }
 
 int get(int i) {
-  // Complexity: O(M)
   int j = 0;
   while (i >= blocks[j].k) {
     i -= blocks[j++].k;
@@ -111,7 +103,6 @@ int get(int i) {
 }
 
 void rebuild() {
-  // Complexity: O(N)
   for (int i = 0, j = 0; i < n; i += blocks[j++].k) {
     blocks[j].simplify();
     memcpy(a + i, blocks[j].b, blocks[j].k * sizeof(a[0]));

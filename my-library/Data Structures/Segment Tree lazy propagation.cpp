@@ -10,7 +10,6 @@ int a[N];
 int t[4 * N], d[4 * N];
 
 void build(int pos, int l, int r) {
-  // Complexity: O(N)
   d[pos] = 0;
   if (r - l == 1) {
     t[pos] = a[l];
@@ -22,7 +21,6 @@ void build(int pos, int l, int r) {
 }
 
 void push(int pos, int l, int r) {
-  // Complexity: O(1)
   if (d[pos]) {
     if (r - l > 1) {
       d[2 * pos + 1] += d[pos];
@@ -34,7 +32,6 @@ void push(int pos, int l, int r) {
 }
 
 void upd(int pos, int l, int r, int i, int x) {
-  // Complexity: O(logN)
   push(pos, l, r);
   if (i < l || r < i) {
     return;
@@ -48,7 +45,6 @@ void upd(int pos, int l, int r, int i, int x) {
 }
 
 void upd(int pos, int l, int r, int ql, int qr, int x) {
-  // Complexity: O(logN)
   push(pos, l, r);
   if (qr < l || r < ql) {
     return;
@@ -63,7 +59,6 @@ void upd(int pos, int l, int r, int ql, int qr, int x) {
 }
 
 int get(int pos, int l, int r, int ql, int qr) {
-  // Complexity: O(logN)
   push(pos, l, r);
   if (qr < l || r < ql) {
     return 0;

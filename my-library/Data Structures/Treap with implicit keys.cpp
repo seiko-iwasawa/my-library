@@ -36,7 +36,6 @@ struct Node {
 };
 
 Node *merge(Node *q, Node *w) {
-  // Complexity: O(log(size_q)+log(size_w))
   if (q->empty()) {
     return w;
   } else if (w->empty()) {
@@ -53,7 +52,6 @@ Node *merge(Node *q, Node *w) {
 }
 
 pair<Node *, Node *> split(Node *t, int k) {
-  // Complexity: O(log(size_t))
   if (t->empty()) {
     return {empty_node, empty_node};
   } else if (t->size() < k) {

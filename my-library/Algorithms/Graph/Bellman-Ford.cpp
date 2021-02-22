@@ -15,13 +15,6 @@ vector<Edge> g[N];
 
 int dist[N];
 
-/*
-Calculates array dist
-dist[v] is the distance between start and v
-dist[v] is INF if v isn't reachable for start
-Additional memory: O(1)
-Time complexity: O(N*M)
-*/
 void bellman_ford(int start) {
   fill(dist, dist + N, INF);
   dist[start] = 0;
@@ -34,13 +27,6 @@ void bellman_ford(int start) {
 
 bool in_q[N];
 
-/*
-Calculates array dist
-dist[v] is the distance between start and v
-dist[v] is INF if v isn't reachable for start
-Additional memory: O(N)
-Time complexity: O(N*M), but in practice, works VERY fast
-*/
 void bellman_ford_queue(int start) {
   fill(dist, dist + N, INF);
   dist[start] = 0;

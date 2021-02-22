@@ -25,14 +25,6 @@ void dfs(int v) {
   topsort.push_back(v);
 }
 
-/*
-Builds array topsort of a DAG
-if the graph has cycles the function will be crush
-topsort stores order of vertexes that there are only edges from topsort[i] to
-topsort[j] where i < j
-Additional memory: O(n)
-Complexity: O(n+m)
-*/
 void build_topsort() {
   fill(used, used + n, false);
   topsort.clear();

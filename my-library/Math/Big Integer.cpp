@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <tuple>
@@ -194,6 +195,10 @@ BI operator/(BI a, int x) {
   }
 }
 
+/*
+Time complexity: O(log(a)*|a|*|b|)
+TODO: faster
+*/
 BI operator/(BI a, BI b) {
   assert(b != 0);
   BI left = -a * a.sign - 1, right = a * a.sign + 1;

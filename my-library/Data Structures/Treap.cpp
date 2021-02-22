@@ -38,7 +38,6 @@ struct Node {
 };
 
 Node *merge(Node *q, Node *w) {
-  // Complexity: O(log(size_q)+log(size_w))
   if (q->empty()) {
     return w;
   } else if (w->empty()) {
@@ -55,7 +54,6 @@ Node *merge(Node *q, Node *w) {
 }
 
 pair<Node *, Node *> split(Node *t, int sx) {
-  // Complexity: O(log(size_t))
   if (t->empty()) {
     return {empty_node, empty_node};
   } else if (t->x < sx) {
@@ -72,19 +70,16 @@ pair<Node *, Node *> split(Node *t, int sx) {
 }
 
 Node *insert(Node *t, int nx) {
-  // Complexity: O(log(size_t))
   auto st = split(t, nx);
   return merge(merge(st.first, new Node(nx)), st.second);
 }
 
 Node *insert(Node *t, Node *nn) {
-  // Complexity: O(log(size_t))
   auto st = split(t, nn->x);
   return merge(merge(st.first, nn), st.second);
 }
 
 Node *fast_insert(Node *t, Node *nn) {
-  // Complexity: O(log(size_t))
   if (t->empty()) {
     return nn;
   } else if (t->y < nn->y) {
@@ -105,15 +100,13 @@ Node *fast_insert(Node *t, Node *nn) {
 }
 
 Node *erase(Node *t, int ex) {
-  // Complexity: O(log(size_t))
   auto st1 = split(t, ex);
   auto st2 = split(st1.second, ex);
   return merge(st1.first, st2.second);
 }
 
+// erased x should be exactly one in t
 Node *fast_erase(Node *t, int ex) {
-  // // Complexity: O(size_t)
-  // erased x should be exactly one in t
   if (t->x < ex) {
     t->R = fast_erase(t->R, ex);
     t->upd();

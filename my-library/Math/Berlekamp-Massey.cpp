@@ -10,8 +10,6 @@ const ld EPS = 1e-3;
 
 template <class T>
 vector<ld> Berlekamp_Massey(vector<T> seq) {
-  // Complexity: O(len(res)**2 + len(seq))
-  // 0 = sum res[j]*seq[i-j] for j = 0..len(res)-1
   vector<ld> res = {1};
   int i = 0;
   ld d = 1;

@@ -31,12 +31,6 @@ void dfs(int v, int last = -1, int id = -1) {
   }
 }
 
-/*
-Finds cut edges in graph
-cut_e stores cut edge indexes
-Additional memory: O(N)
-Time complexity: O(N+M)
-*/
 void build_cut_e() {
   cut_e.clear();
   ct = 1;

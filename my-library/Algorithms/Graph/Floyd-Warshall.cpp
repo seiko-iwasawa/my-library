@@ -16,7 +16,6 @@ int dist[N][N];
 int p[N][N];
 
 void floyd_warshall() {
-  // Complexity: O(N**3)
   for (int v = 0; v < N; ++v) {
     for (int u = 0; u < N; ++u) {
       dist[v][u] = INF;

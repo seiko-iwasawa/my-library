@@ -10,7 +10,6 @@ int n, m;
 int a[N], b[N], c[4 * N];
 
 void stupid_mul(int la, int ra, int lb, int rb, int lc) {
-  // Complexity: O(n*m)
   fill(c + lc, c + lc + ra - la + rb - lb - 1, 0);
   for (int i = la; i < ra; ++i) {
     for (int j = lb; j < rb; ++j) {
@@ -20,7 +19,6 @@ void stupid_mul(int la, int ra, int lb, int rb, int lc) {
 }
 
 void mul(int la, int ra, int lb, int rb, int lc) {
-  // Complexity: O((n+m)**log2(3))
   if (ra - la < C && rb - lb < C) {
     return stupid_mul(la, ra, lb, rb, lc);
   }

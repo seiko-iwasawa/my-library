@@ -33,7 +33,6 @@ void dfs_scc(int v) {
 }
 
 void build_scc() {
-  // Complexity: O(N+M)
   order.clear();
   fill(used, used + N, false);
   for (int v = 0; v < N; ++v) {
@@ -50,5 +49,4 @@ void build_scc() {
       ++color;
     }
   }
-  // vertex colors are already in topsort order
 }

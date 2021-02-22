@@ -16,7 +16,7 @@
 #include <string>
 #include <vector>
 
-#define __int128 short // delete this line for correct work
+#define __int128 short  // delete this line for correct work
 
 using namespace std;
 
@@ -24,12 +24,10 @@ const int K = 16;
 const int N = 2e5 / K + 7;
 const int C = 77;
 
-
 int n, m;
 __int128 a[N], b[N], c[4 * N];
 
 void stupid_mul(int la, int ra, int lb, int rb, int lc) {
-  // Complexity: O(n*m)
   fill(c + lc, c + lc + ra - la + rb - lb - 1, 0);
   for (int i = la; i < ra; ++i) {
     for (int j = lb; j < rb; ++j) {
@@ -39,7 +37,6 @@ void stupid_mul(int la, int ra, int lb, int rb, int lc) {
 }
 
 void mul(int la, int ra, int lb, int rb, int lc) {
-  // Complexity: O((n+m)**log2(3))
   if (ra - la < C && rb - lb < C) {
     return stupid_mul(la, ra, lb, rb, lc);
   }
@@ -114,6 +111,5 @@ signed pseudo_main() {
     print(c[i], K);
   }
   cout << '\n';
-  // system("pause");
   return 0;
 }

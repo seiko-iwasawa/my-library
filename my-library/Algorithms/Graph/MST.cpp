@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
-#include <numeric>  // iota()
+#include <numeric>
 
 using namespace std;
 
@@ -36,7 +36,6 @@ struct Edge {
 } edges[M];
 
 void build_mst() {
-  // Complexity: O(M*logM)
   sort(edges, edges + M, [](Edge q, Edge w) { return q.w < w.w; });
   int cnt = 0;
   build();

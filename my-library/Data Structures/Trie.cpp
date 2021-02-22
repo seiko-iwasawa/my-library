@@ -6,13 +6,6 @@ const int N = 1e5;
 
 const int A = 26;
 
-/*
-'g[c]' is the children if we go on edge 'c'
-'par' is the parent
-'par_c' is the parent edge
-'term' is the number of words that has end in this vertex
-'-1' is the fictious vertex
-*/
 struct Node {
   int go[A];
   int par;
@@ -30,12 +23,6 @@ struct Node {
 } trie[N];
 int root = 0, t_sz = 0;
 
-/*
-Add string 's' in the trie
-
-Additional memory: O(1)
-Time complexity: O(|s|)
-*/
 void add(string s) {
   int v = root;
   for (int i = 0; i < (int)s.size(); ++i) {

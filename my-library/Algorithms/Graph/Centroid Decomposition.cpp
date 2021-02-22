@@ -34,13 +34,6 @@ int get_centroid(int v, int sz, int last = -1) {
   return v;
 }
 
-/*
-Builds centriod decomposition
-cd is oriented centroid tree
-p is array of parents
-Additional memory: O(N+logN)
-Time complexity: O(NlogN)
-*/
 int build(int v, int lst = -1) {
   dfs(v);
   int c = get_centroid(v, d[v]);

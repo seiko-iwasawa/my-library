@@ -17,13 +17,6 @@ vector<Edge> g[N];
 bool used[N];
 int dist[N];
 
-/*
-Calculate array dist
-dist[v] is distance between start and v
-weights of edges must be non-negative
-Additional memory: O(N)
-Time complexity: O(N*N+M)
-*/
 void dijkstra1(int start) {
   fill(used, used + N, false);
   fill(dist, dist + N, INF);
@@ -45,13 +38,6 @@ void dijkstra1(int start) {
   }
 }
 
-/*
-Calculate array dist
-dist[v] is distance between start and v
-weights of edges must be non-negative
-Additional memory: O(1)
-Time complexity: O((N+M)logN)
-*/
 void dijkstra2(int start) {
   fill(dist, dist + N, INF);
   priority_queue<pair<int, int>, vector<pair<int, int>>,
