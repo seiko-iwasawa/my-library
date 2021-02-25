@@ -9,17 +9,19 @@ const int M = 2e4;
 struct Edge {
   int v, u, c, f;
 
-  int r() { return c - f; }
-} edges[M];
-vector<int> g[N];
-int s, t;
+  int cf() { return c - f; }
+} edges[2 * M];
 
-void add_oriented_edge(int v, int u, int c) {
+int n, s, t;
+vector<int> g[N];
+
+void add_edge(int v, int u, int c) {
   static int i = 0;
-  edges[i] = {v, u, c, 0};
-  edges[i + 1] = {u, v, 0, 0};
-  g[v].push_back(i++);
-  g[u].push_back(i++);
+  edges[i] = {v, u, c};
+  g[v].push_back(i);
+  edges[i ^ 1] = {u, v, 0};
+  g[u].push_back(i ^ 1);
+  i += 2;
 }
 
 int f;
@@ -31,7 +33,7 @@ bool dfs(int v) {
   }
   used[v] = true;
   for (int i : g[v]) {
-    if (edges[i].r() && !used[edges[i].u] && dfs(edges[i].u)) {
+    if (edges[i].cf() && !used[edges[i].u] && dfs(edges[i].u)) {
       ++edges[i].f;
       --edges[i ^ 1].f;
       return true;
@@ -43,6 +45,6 @@ bool dfs(int v) {
 void ford_fulkerson() {
   f = 0;
   do {
-    fill(used, used + N, false);
+    fill(used, used + n, false);
   } while (dfs(s));
 }

@@ -6,12 +6,19 @@
 using namespace std;
 
 const int N = 1e5;
+const int M = 1e6;
+
+struct Edge {
+  int v, u, w;
+} edges[M];
+
+int n, m;
 
 int par[N], sz[N];
 
 void build() {
-  iota(par, par + N, 0);
-  fill(sz, sz + N, 1);
+  iota(par, par + n, 0);
+  fill(sz, sz + n, 1);
 }
 
 int find(int x) { return x == par[x] ? x : par[x] = find(par[x]); }
@@ -29,20 +36,14 @@ bool join(int x, int y) {
   return x != y;
 }
 
-const int M = 1e6;
-
-struct Edge {
-  int v, u, w;
-} edges[M];
-
 void build_mst() {
-  sort(edges, edges + M, [](Edge q, Edge w) { return q.w < w.w; });
+  sort(edges, edges + m, [](Edge q, Edge w) { return q.w < w.w; });
   int cnt = 0;
   build();
-  for (Edge *e = edges; e != edges + M; ++e) {
+  for (Edge *e = edges; e != edges + m; ++e) {
     if (join(e->v, e->u)) {
       swap(*e, *(edges + cnt++));
     }
   }
-  assert(cnt == N - 1);
+  assert(cnt == n - 1);
 }

@@ -12,11 +12,11 @@ struct Edge {
 
 int n, m;
 vector<Edge> g[N];
-int tin[N], ct;
+int tin[N], ct = 1;
 int up[N];
 vector<int> cut_e;
 
-void dfs(int v, int last = -1, int id = -1) {
+void dfs(int v, int last, int id) {
   up[v] = tin[v] = ct++;
   for (Edge e : g[v]) {
     if (!tin[e.u]) {
@@ -26,17 +26,15 @@ void dfs(int v, int last = -1, int id = -1) {
       up[e.v] = min(up[e.v], tin[e.u]);
     }
   }
-  if (up[v] == tin[v] && last != -1) {
+  if (up[v] == tin[v] && last != v) {
     cut_e.push_back(id);
   }
 }
 
 void build_cut_e() {
-  cut_e.clear();
-  ct = 1;
   for (int v = 0; v < n; ++v) {
     if (!tin[v]) {
-      dfs(v);
+      dfs(v, v, -1);
     }
   }
 }

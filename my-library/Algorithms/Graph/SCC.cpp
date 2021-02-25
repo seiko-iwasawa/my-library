@@ -5,6 +5,7 @@ using namespace std;
 
 const int N = 1e5;
 
+int n;
 vector<int> g[N];
 vector<int> rev_g[N];
 
@@ -33,15 +34,14 @@ void dfs_scc(int v) {
 }
 
 void build_scc() {
-  order.clear();
-  fill(used, used + N, false);
-  for (int v = 0; v < N; ++v) {
+  fill(used, used + n, false);
+  for (int v = 0; v < n; ++v) {
     if (!used[v]) {
       topsort(v);
     }
   }
   reverse(order.begin(), order.end());
-  fill(scc, scc + N, 0);
+  fill(scc, scc + n, 0);
   color = 1;
   for (int v : order) {
     if (!scc[v]) {

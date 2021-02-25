@@ -5,6 +5,7 @@ using namespace std;
 
 const int N = 500;
 
+int n;
 vector<int> gL[N];
 
 int pR[N];
@@ -21,10 +22,10 @@ bool dfs(int v) {
 }
 
 void kuhn() {
-  // Complexity: O(N*M)
-  fill(pR, pR + N, -1);
+  fill(pR, pR + n, -1);
   cnt = 0;
-  for (int v = 0; v < N; ++v, ++cnt) {
+  for (int v = 0; v < n; ++v) {
+    ++cnt;
     dfs(v);
   }
 }
