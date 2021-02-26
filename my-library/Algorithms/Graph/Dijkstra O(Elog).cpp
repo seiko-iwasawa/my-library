@@ -33,7 +33,7 @@ void dijkstra(int start) {
       for (Edge e : g[v]) {
         if (dist[e.u] > dist[e.v] + e.w) {
           dist[e.u] = dist[e.v] + e.w;
-          q.push({dist[e.u], e.v});
+          q.push({dist[e.u], e.u});
         }
       }
     }
