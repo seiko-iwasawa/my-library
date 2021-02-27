@@ -5,10 +5,9 @@ using namespace std;
 
 const int N = 1e5;
 
-string s;
 int zf[N];
 
-void build_zf() {
+void build_zf(string s) {
   int n = s.size();
   fill(zf, zf + n, 0);
   for (int i = 1, l = 0, r = -1; i < n; ++i) {

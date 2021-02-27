@@ -7,7 +7,7 @@ const int N = 1e5;
 const int INF = 1e9 + 7;
 
 int a[N];
-int t[N];
+int t[4 * N];
 
 void build(int pos, int l, int r) {
   if (r - l == 1) {

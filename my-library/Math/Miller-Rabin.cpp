@@ -3,14 +3,14 @@
 
 using namespace std;
 
-#define int long long
+typedef long long ll;
 
-int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
+ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 
-int sum(int a, int b, int mod) { return a + b < mod ? a + b : a + b - mod; }
+ll sum(ll a, ll b, ll mod) { return a + b < mod ? a + b : a + b - mod; }
 
-int mul(int a, int b, int mod) {
-  int res = 0;
+ll mul(ll a, ll b, ll mod) {
+  ll res = 0;
   do {
     if (b & 1) {
       res = sum(res, a, mod);
@@ -20,8 +20,8 @@ int mul(int a, int b, int mod) {
   return res;
 }
 
-int qp(int a, int k, int mod) {
-  int res = 1;
+ll qp(ll a, ll k, ll mod) {
+  ll res = 1;
   do {
     if (k & 1) {
       res = mul(res, a, mod);
@@ -31,14 +31,14 @@ int qp(int a, int k, int mod) {
   return res;
 }
 
-bool miller_rabin_test(int a, int n) {
+bool miller_rabin_test(ll a, ll n) {
   if (a >= n) {
     return true;
   }
   if (gcd(a, n) != 1) {
     return false;
   }
-  int m = n - 1;
+  ll m = n - 1;
   while (~(m >>= 1) & 1) {
     if (qp(a, m, n) == n - 1) {
       return true;
@@ -47,19 +47,19 @@ bool miller_rabin_test(int a, int n) {
   return qp(a, m, n) == n - 1 || qp(a, m, n) == 1;
 }
 
-bool is_prime(int n) {
+bool is_prime(ll n) {
   if (n == 1) {
     return false;
   } else if (n % 2 == 0) {
     return n == 2;
   } else {
-    for (int a : {2, 3, 5, 7, 11, 13, 17, 19}) {
+    for (ll a : {2, 3, 5, 7, 11, 13, 17, 19}) {
       if (!miller_rabin_test(a, n)) {
         return false;
       }
     }
     mt19937 rnd(239);
-    for (int it = 0; n >> it; ++it) {
+    for (ll it = 0; n >> it; ++it) {
       if (!miller_rabin_test(rnd() % (n - 1) + 1, n)) {
         return false;
       }

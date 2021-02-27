@@ -7,8 +7,8 @@ const int MOD = 1e9 + 7;
 int sum(int x, int y) { return x + y < MOD ? x + y : x + y - MOD; }
 int dif(int x, int y) { return x - y < 0 ? x - y + MOD : x - y; }
 int mul(int x, int y) { return x * 1LL * y % MOD; }
-int add(int &x, int y) { return x = sum(x, y); }
-int sub(int &x, int y) { return x = dif(x, y); }
+int& add(int& x, int y) { return x = sum(x, y); }
+int& sub(int& x, int y) { return x = dif(x, y); }
 int qp(int x, int k) {
   int res = 1;
   do {

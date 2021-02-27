@@ -36,10 +36,10 @@ void gauss_mod2() {
   ans = 0;
   for (int i = 0; i < N; ++i) {
     int j;
-    for (j = 0; j < N && !eq[i][j]; ++j)
-      ;
-    if (j != N) {
-      ans[j] = eq[i][N];
+    for (j = 0; j < N && !eq[i][j]; ++j) {
+      if (j != N) {
+        ans[j] = eq[i][N];
+      }
     }
   }
   assert(check_ans());

@@ -22,7 +22,6 @@ struct Node {
     }
   }
   Node *kth(int k) {
-    // Complexity: O(log(sz))
     assert(!empty());
     if (L->size() >= k) {
       return L->kth(k);

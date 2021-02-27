@@ -7,9 +7,9 @@ const int N = 1e5;
 
 int par[N], sz[N];
 
-void build() {
-  iota(par, par + N, 0);
-  fill(sz, sz + N, 1);
+void build(int n) {
+  iota(par, par + n, 0);
+  fill(sz, sz + n, 1);
 }
 
 int find(int x) { return x == par[x] ? x : par[x] = find(par[x]); }
