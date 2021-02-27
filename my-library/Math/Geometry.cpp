@@ -3,18 +3,18 @@
 #include <cmath>
 #include <iostream>
 #include <string>
+#include <tuple>
 #include <vector>
 
 using namespace std;
 
-//#define DEBUG
 //#define int long long
 #define COOL_LD 0
 #define LD 1
 #define INT 2
 #define MYLD COOL_LD
 
-#ifdef DEBUG
+#ifdef _DEBUG
 void check_warning(bool expr, string warning = "WARNING", int line = nan(""),
                    string file = "---") {
   if (!expr) {
@@ -33,7 +33,7 @@ void check_warning(bool expr, string warning = "WARNING", int line = nan(""),
                    string file = "---") {}
 void check_error(bool expr, string error = "ERROR", int line = nan(""),
                  string file = "---") {}
-#endif  // DEBUG
+#endif
 
 #if MYLD == COOL_LD
 const long double EPS = 1e-9;
@@ -228,28 +228,28 @@ int sign(ld x) {
 namespace myg2d {
 const long double PI = ::atan2(0, -1);
 
-struct Point;
-struct Vector;
 ld dist2(Point A, Point B);
 ld dist(Point A, Point B);
 ld dot_product(Vector a, Vector b);
 ld cross_product(Vector a, Vector b);
 bool operator==(Point A, Point B);
+bool operator!=(Point A, Point B);
+bool operator!=(Vector A, Vector B);
 Point operator+(Point A, Vector a);
 Vector operator*(Vector a, ld k);
 
-/* Definition */
+/* Definitions */
 struct Point {
   ld x, y;
 
   Point() {}
-  Point(ld _x, ld _y) : x(_x), y(_y) {}
+  Point(ld x, ld y) : x(x), y(y) {}
 };
 struct Vector {
   ld x, y;
 
   Vector() {}
-  Vector(ld _x, ld _y) : x(_x), y(_y) {}
+  Vector(ld x, ld y) : x(x), y(y) {}
   Vector(Point A) : x(A.x), y(A.y) {}
   Vector(Point A, Point B) : x(B.x - A.x), y(B.y - A.y) {}
 };
@@ -257,21 +257,30 @@ struct Seg {
   Point A, B;
 
   Seg() {}
-  Seg(Point _A, Point _B) : A(_A), B(_B) {}
+  Seg(Point A, Point B) : A(A), B(B) {
+    check_error(A != B, "Segment must connect ditinct points.", __LINE__);
+  }
 };
 struct Ray {
   Point O;
   Vector r;
 
   Ray() {}
-  Ray(Point _O, Vector _r) : O(_O), r(_r) {}
-  Ray(Point A, Point B) : O(A), r(A, B) {}
+  Ray(Point O, Vector r) : O(O), r(r) {
+    check_error(r != Vector(0, 0), "Ray must have a direction.", __LINE__);
+  }
+  Ray(Point A, Point B) : O(A), r(A, B) {
+    check_error(A != B, "Ray must have a direction", __LINE__);
+  }
 };
 struct Angle {
   Point A, O, B;
 
   Angle() {}
-  Angle(Point _A, Point _O, Point _B) : A(_A), O(_O), B(_B) {}
+  Angle(Point A, Point O, Point B) : A(A), O(O), B(B) {
+    check_error(O != A && O != B,
+                "The edges of the angle must have a direction.", __LINE__);
+  }
 };
 struct Line {
   ld a, b, c;
@@ -280,19 +289,21 @@ struct Line {
   Vector dir_vec() { return Vector(-b, a); }
 
   ld operator()(Point A) { return get(A); }
+  // Retruns i-th point on the line, [0] is the nearest point to the Point(0, 0)
   Point operator[](int i) {
     return Point(-a * c / (a * a + b * b), -b * c / (a * a + b * b)) +
            dir_vec() * i;
   }
 
   void init(Point A, Point B) {
+    check_error(A != B, "Can't init line for two equal points.", __LINE__);
     a = A.y - B.y;
     b = B.x - A.x;
     c = -(a * A.x + b * A.y);
   }
 
   Line() {}
-  Line(ld _a, ld _b, ld _c) : a(_a), b(_b), c(_c) {}
+  Line(ld a, ld b, ld c) : a(a), b(b), c(c) {}
   Line(Point A, Point B) { init(A, B); }
   Line(Seg s) { init(s.A, s.B); }
   Line(Point A, Vector r) { init(A, A + r); }
@@ -303,7 +314,7 @@ struct Circle {
   ld r;
 
   Circle() {}
-  Circle(Point _O, ld _r) : O(_O), r(_r) {}
+  Circle(Point O, ld r) : O(O), r(r) {}
 };
 struct Triangle {
   Point A, B, C;
@@ -318,7 +329,7 @@ struct Triangle {
   }
 
   Triangle() {}
-  Triangle(Point _A, Point _B, Point _C) : A(_A), B(_B), C(_C) {}
+  Triangle(Point A, Point B, Point C) : A(A), B(B), C(C) {}
 };
 struct Polygon : vector<Point> {
   Polygon() {}
@@ -359,7 +370,7 @@ ostream &operator<<(ostream &out, Vector a) { return out << a.x << ' ' << a.y; }
 ostream &operator<<(ostream &out, Seg q) { return out << q.A << ' ' << q.B; }
 ostream &operator<<(ostream &out, Ray g) { return out << g.O << '\n' << g.r; }
 ostream &operator<<(ostream &out, Angle phi) {
-  return out << phi.A << '\n' << phi.O << '\n' << phi.B << '\n';
+  return out << phi.A << '\n' << phi.O << '\n' << phi.B;
 }
 ostream &operator<<(ostream &out, Line n) {
   return out << n.a << ' ' << n.b << ' ' << n.c;
@@ -377,13 +388,13 @@ ostream &operator<<(ostream &out, Polygon p) {
 bool operator==(Point A, Point B) { return make_pair(A) == make_pair(B); }
 bool operator==(Vector a, Vector b) { return make_pair(a) == make_pair(b); }
 bool operator==(Seg q, Seg e) { return make_pair(q) == make_pair(e); }
-// TODO: operator==(Ray g, Ray h)
+bool operator==(Ray g, Ray h) { return tie(g.O, g.r) == tie(h.O, h.r); }
 // TODO: operator==(Angle phi, Angle psi)
 bool operator==(Line n, Line m) {
   return n.a * m.b == n.b * m.a && n.b * m.c == n.c * m.b &&
          n.c * m.a == n.a * m.c;
 }
-bool operator==(Circle w, Circle u) { return w.O == u.O && w.r == u.r; }
+bool operator==(Circle w, Circle u) { return tie(w.O, w.r) == tie(u.O, u.r); }
 bool operator==(Triangle t, Triangle r) {
   return t.get_sorted_sides2() == r.get_sorted_sides2();
 }
@@ -391,8 +402,8 @@ bool operator==(Triangle t, Triangle r) {
 bool operator!=(Point A, Point B) { return !(A == B); }
 bool operator!=(Vector a, Vector b) { return !(a == b); }
 bool operator!=(Seg q, Seg e) { return !(q == e); }
-// TODO: operator!=(Ray g, Ray h)
-// TODO: operator!=(Angle phi, Angle psi)
+bool operator!=(Ray g, Ray h) { return !(g == h); }
+// TODO: bool operator!=(Angle phi, Angle psi) { return !(phi == psi); }
 bool operator!=(Line n, Line m) { return !(n == m); }
 bool operator!=(Triangle t, Triangle r) { return !(t == r); }
 bool operator!=(Circle w, Circle u) { return !(w == u); }
