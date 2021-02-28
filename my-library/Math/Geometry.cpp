@@ -237,6 +237,7 @@ bool operator!=(Point A, Point B);
 bool operator!=(Vector A, Vector B);
 Point operator+(Point A, Vector a);
 Vector operator*(Vector a, ld k);
+bool on(Point P, Line n);
 
 /* Definitions */
 struct Point {
@@ -270,7 +271,7 @@ struct Ray {
     check_error(r != Vector(0, 0), "Ray must have a direction.", __LINE__);
   }
   Ray(Point A, Point B) : O(A), r(A, B) {
-    check_error(A != B, "Ray must have a direction", __LINE__);
+    check_error(A != B, "Ray must have a direction.", __LINE__);
   }
 };
 struct Angle {
@@ -314,7 +315,9 @@ struct Circle {
   ld r;
 
   Circle() {}
-  Circle(Point O, ld r) : O(O), r(r) {}
+  Circle(Point O, ld r) : O(O), r(r) {
+    check_error(r != 0, "Circle can't be equal to point.", __LINE__);
+  }
 };
 struct Triangle {
   Point A, B, C;
@@ -329,7 +332,10 @@ struct Triangle {
   }
 
   Triangle() {}
-  Triangle(Point A, Point B, Point C) : A(A), B(B), C(C) {}
+  Triangle(Point A, Point B, Point C) : A(A), B(B), C(C) {
+    check_error(on(A, Line(B, C)),
+                "Triangle can't have three points on the one line.", __LINE__);
+  }
 };
 struct Polygon : vector<Point> {
   Polygon() {}
@@ -346,15 +352,37 @@ pair<Point, Point> make_pair(Seg q) { return {q.A, q.B}; }
 /* Operators */
 istream &operator>>(istream &in, Point &A) { return in >> A.x >> A.y; }
 istream &operator>>(istream &in, Vector &a) { return in >> a.x >> a.y; }
-istream &operator>>(istream &in, Seg &q) { return in >> q.A >> q.B; }
-istream &operator>>(istream &in, Ray &g) { return in >> g.O >> g.r; }
-istream &operator>>(istream &in, Angle &phi) {
-  return in >> phi.A >> phi.O >> phi.B;
+istream &operator>>(istream &in, Seg &q) {
+  in >> q.A >> q.B;
+  check_error(q.A != q.B, "Segment must connect ditinct points.", __LINE__);
+  return in;
 }
-istream &operator>>(istream &in, Line &n) { return in >> n.a >> n.b >> n.c; }
-istream &operator>>(istream &in, Circle &w) { return in >> w.O >> w.r; }
+istream &operator>>(istream &in, Ray &g) {
+  in >> g.O >> g.r;
+  check_error(g.r != Vector(0, 0), "Ray must have a direction.", __LINE__);
+  return in;
+}
+istream &operator>>(istream &in, Angle &phi) {
+  in >> phi.A >> phi.O >> phi.B;
+  check_error(phi.O != phi.A && phi.O != phi.B,
+              "The edges of the angle must have a direction.", __LINE__);
+  return in;
+}
+istream &operator>>(istream &in, Line &n) {
+  in >> n.a >> n.b >> n.c;
+  check_error(n.a != 0 || n.b != 0, "Incorrect line equation.", __LINE__);
+  return in;
+}
+istream &operator>>(istream &in, Circle &w) {
+  in >> w.O >> w.r;
+  check_error(w.r != 0, "Circle can't be equal to point.", __LINE__);
+  return in;
+}
 istream &operator>>(istream &in, Triangle &t) {
-  return in >> t.A >> t.B >> t.C;
+  in >> t.A >> t.B >> t.C;
+  check_error(on(t.A, Line(t.B, t.C)),
+              "Triangle can't have three points on the one line.", __LINE__);
+  return in;
 }
 istream &operator>>(istream &in, Polygon &p) {
   int n;
