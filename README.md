@@ -9,11 +9,20 @@ Comments: It is better not to comment code. Comment only if it is neccesary. For
 
 ## Title
 
-### Algorithms
+### Basic
+Secondary algorithms.
+
+### String
+Algorithms with strings.
+
+### Graph
+Algorithms with graphs.
 
 ### Data Structures
+Tricky objects that allow you to do useful things.
 
 ### Math
+Helpful math algorithms.
 
 TODO:
 * mincut
