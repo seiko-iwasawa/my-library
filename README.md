@@ -42,7 +42,6 @@ TODO:
 * next balanced bracket sequence
 * edmonds–karp
 * palindromic tree
-* longest increasing subsequence
 * halfplane intersection
 * minkowski sum
 * euler path
