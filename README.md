@@ -22,7 +22,7 @@ Algorithms with graphs.
 Tricky objects that allow you to do useful things.
 
 ### Math
-Helpful math algorithms.
+Helpful math and combinatorial algorithms.
 
 ### Stresstest
 Program to compare solutions.
