@@ -24,6 +24,9 @@ Tricky objects that allow you to do useful things.
 ### Math
 Helpful math algorithms.
 
+### Stresstest
+Program to compare solutions.
+
 TODO:
 * mincut
 * mincost
