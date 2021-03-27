@@ -32,8 +32,6 @@ TODO:
 * mincost
 * persistent seg tree lazy propagation
 * fft
-* fast input/output
-* fast allocator
 * hopcroft–karp
 * suffix tree
 * suffix automat
