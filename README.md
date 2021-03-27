@@ -35,7 +35,6 @@ TODO:
 * suffix tree
 * suffix automat
 * binary berlekamp-massey
-* lca
 * persistent stack
 * persistent array
 * next permutation
