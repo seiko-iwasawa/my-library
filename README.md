@@ -35,11 +35,8 @@ TODO:
 * hopcroft–karp
 * suffix tree
 * suffix automat
-* binary berlekamp-massey
 * persistent stack
 * persistent array
-* next permutation
-* next balanced bracket sequence
 * edmonds–karp
 * palindromic tree
 * halfplane intersection
@@ -53,6 +50,8 @@ TODO:
 * knuth's optimization
 * divide and conquer
 * convex hull trick
+* Li Chao Tree
+* Segment Tree Beats
 * finish up treap
 * stable_selection_sort, quick_sort, radix_sort
 * improve geometry
