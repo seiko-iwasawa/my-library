@@ -48,7 +48,6 @@ TODO:
 * prim's algorithm
 * knuth's optimization
 * divide and conquer
-* convex hull trick
 * Li Chao Tree
 * Segment Tree Beats
 * finish up treap
