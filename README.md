@@ -41,7 +41,6 @@ TODO:
 * palindromic tree
 * halfplane intersection
 * minkowski sum
-* euler path
 * burnside's theorem
 * redfield–polya theorem
 * 2-connected components
