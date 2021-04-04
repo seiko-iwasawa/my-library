@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// used files: Persistent Segment Tree.cpp
+
 const int N = 1e5 + 7;
 
 struct Node {
@@ -11,11 +13,10 @@ struct Node {
 
   int size() { return r - l; }
   bool have(int i) { return l <= i && i < r; }
-  void upd() { x = L->x + R->x; }
 
   Node() {}
   Node(int _x, int i) : x(_x), l(i), r(i + 1), L(NULL), R(NULL) {}
-  Node(Node *_L, Node *_R) : L(_L), R(_R) { upd(); }
+  Node(Node *_L, Node *_R) : L(_L), R(_R) {}
 } tree[N];
 
 Node *upd(Node *t, int i, int x) {
