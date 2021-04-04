@@ -35,7 +35,6 @@ TODO:
 * hopcroft–karp
 * suffix tree
 * suffix automat
-* persistent stack
 * persistent array
 * edmonds–karp
 * palindromic tree
