@@ -11,7 +11,9 @@ Comments: It is better not to comment code. Comment only if it is neccesary. For
 
 ### Basic
 Secondary algorithms.
-[Binary Search](/my-library/Basic/Binary%20Search.cpp)
+* [Binary Search](/my-library/Basic/Binary%20search.cpp) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log (x / EPS)))
+* [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - fast memory allocator that incorrectly frees it
+* [Longest Increasing Subsequence](my-library/Basic/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem
 
 ### String
 Algorithms with strings.
