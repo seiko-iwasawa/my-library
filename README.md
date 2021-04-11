@@ -11,6 +11,7 @@ Comments: It is better not to comment code. Comment only if it is neccesary. For
 
 ### Basic
 Secondary algorithms.
+[Binary Search](/Basic/Binary%20Search.cpp)
 
 ### String
 Algorithms with strings.
