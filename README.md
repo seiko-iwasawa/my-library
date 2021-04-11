@@ -11,9 +11,13 @@ Comments: It is better not to comment code. Comment only if it is neccesary. For
 
 ### Basic
 Secondary algorithms.
-* [Binary Search](/my-library/Basic/Binary%20search.cpp) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log (x / EPS)))
-* [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - fast memory allocator that incorrectly frees it
-* [Longest Increasing Subsequence](my-library/Basic/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem
+* [Binary Search](/my-library/Basic/Binary%20search.cpp) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log(x / EPS))).
+* [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - fast memory allocator that incorrectly frees it.
+* [Longest Increasing Subsequence](my-library/Basic/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
+* [Fast input output](my-library/Basic/Fast%20input%20output.cpp) - simple input/output acceleration.
+* [Pragmas](my-library/Basic/Pragmas.cpp) - useful pragmas.
+* [Sorting algorithms](my-library/Basic/Sorting%20algorithms.cpp) - various sorts of the array.
+* [Ternary search](my-library/Basic/Ternary%20search.cpp) - search algorithm that finds the maximum value for a convex upward array (all elements are unique) in O(log n).
 
 ### String
 Algorithms with strings.
