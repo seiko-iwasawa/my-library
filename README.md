@@ -5,7 +5,7 @@ This is a library with many things for competitive programming.
 
 Formatting: Google
 
-Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files. 
+Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files ([example](/my-library/Data%20Structure/Persistent%20Array.cpp)). 
 
 ## Title
 
@@ -21,6 +21,12 @@ Secondary algorithms.
 
 ### String
 Algorithms with strings.
+* [Hash string](/my-library/String/Hash%20string.cpp) - polynomial hash implementation.
+* [LCP](/my-library/String/LCP.cpp) - longest common prefix array (LCP array) implementation; it stores the lengths of the longest common prefixes (LCPs) between all pairs of consecutive suffixes in a sorted suffix array.
+* [Prefix function](/my-library/String/Prefix%20function.cpp) - for all prefixes, it stores the lengths of the longest prefix suffix that matches the beginning of the prefix and is not equal to it.
+* [Suffix array](/my-library/String/Suffix%20array.cpp) - it stores a sorted suffix array.
+* [Trie](/my-library/String/Trie.cpp) - it stores strings as a tree where the edges are letters and the vertices are prefixes.
+* [Z function](/my-library/String/Z%20function.cpp) - for all suffixes except the string itself, it stores the lengths of the longest suffix prefix that matches the beginning of the prefix.
 
 ### Graph
 Algorithms with graphs.
