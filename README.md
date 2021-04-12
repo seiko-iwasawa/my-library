@@ -30,6 +30,11 @@ Algorithms with strings.
 
 ### Graph
 Algorithms with graphs.
+* [0-1 BFS](/my-library/Graph/0-1%20BFS.cpp) - BFS for a graph with edge weights 0 or 1.
+* [0-k BFS](/my-library/Graph/0-k%20BFS.cpp) - BFS for a graph with integer edge weights from 0 to k.
+* [BFS](/my-library/Graph/BFS.cpp) - breadth-first search.
+* [Bellman-Ford with queue](/my-library/Graph/Bellman-Ford%20with%20queue.cpp) - Bellman-Ford implementation that is usually faster.
+* [Bellman-Ford](/my-library/Graph/Bellman-Ford.cpp) - it builds array that stores the distances between fixed start and vertices, or `+-INF` if the distance does not exist.
 
 ### Data Structure
 Tricky objects that allow you to do useful things.
