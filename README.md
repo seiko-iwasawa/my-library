@@ -69,7 +69,7 @@ Program to compare solutions.
 * stable_selection_sort, quick_sort, radix_sort
 
 ### String
-(empty)
+* deterministic finite automation
 
 ### Graph
 * mincut
