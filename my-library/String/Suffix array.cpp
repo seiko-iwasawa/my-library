@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,60 +6,47 @@ using namespace std;
 
 const int N = 2e5 + 7;
 
-int p[N], c[N], pn[N], cn[N];
-
-int cnt[N];
-
 int n;
+string s;
+int sufa[N], back;
 
-void cnt_sort() {
-  fill(cnt, cnt + N, 0);
-  for (int i = 0; i < n; i++) cnt[c[i]]++;
-  for (int i = n - 1; i > 0; i--) cnt[i] = cnt[i - 1];
-  cnt[0] = 0;
-  for (int i = 1; i < n; i++) cnt[i] += cnt[i - 1];
-  for (int i = 0; i < n; i++) {
-    pn[cnt[c[p[i]]]] = p[i];
-    cnt[c[p[i]]]++;
-  }
-  for (int i = 0; i < n; i++) p[i] = pn[i];
-}
+int eqcl[N];
+int nxt_eqcl[N];
+vector<int> cnt[N];
 
-void build(string s) {
-  n = s.size();
-  vector<pair<char, int>> a(n);
-  for (int i = 0; i < n; i++) a[i] = {s[i], i};
-  sort(a.begin(), a.end());
-  p[0] = a[0].second;
-  c[p[0]] = 0;
-  for (int i = 1; i < n; i++) {
-    p[i] = a[i].second;
-    if (a[i].first == a[i - 1].first)
-      c[p[i]] = c[p[i - 1]];
-    else
-      c[p[i]] = c[p[i - 1]] + 1;
+// sorts cyclic shifts
+void build_sufa() {
+  for (int i = 0; i < n; ++i) {
+    eqcl[i] = s[i];
+    cnt[eqcl[i]].push_back(i);
   }
-  int k = 0;
-  while ((1 << k) < n) {
-    for (int i = 0; i < n; i++) p[i] = (p[i] - (1 << k) + n) % n;
-    cnt_sort();
-    cn[p[0]] = 0;
-    for (int i = 1; i < n; i++) {
-      if (make_pair(c[p[i]], c[(p[i] + (1 << k)) % n]) ==
-          make_pair(c[p[i - 1]], c[(p[i - 1] + (1 << k)) % n]))
-        cn[p[i]] = cn[p[i - 1]];
-      else
-        cn[p[i]] = cn[p[i - 1]] + 1;
+  back = 0;
+  for (int c = 0; c < N; ++c) {
+    for (int j : cnt[c]) {
+      sufa[back++] = j;
     }
-    for (int i = 0; i < n; i++) c[i] = cn[i];
-    k++;
+    cnt[c].clear();
   }
-}
-
-void solve() {
-  string s;
-  cin >> s;
-  s += "$";
-  build(s);
-  for (int i = 1; i < s.size(); i++) cout << p[i] << " ";
+  for (int k = 1; k < n; k *= 2) {
+    for (int i = 0; i < n; ++i) {
+      cnt[eqcl[(sufa[i] - k + n) % n]].push_back((sufa[i] - k + n) % n);
+    }
+    back = 0;
+    for (int c = 0; c < N; ++c) {
+      for (int j : cnt[c]) {
+        sufa[back++] = j;
+      }
+      cnt[c].clear();
+    }
+    nxt_eqcl[sufa[0]] = 0;
+    for (int i = 0; i + 1 < n; ++i) {
+      if (eqcl[sufa[i]] == eqcl[sufa[i + 1]] &&
+          eqcl[(sufa[i] + k) % n] == eqcl[(sufa[i + 1] + k) % n]) {
+        nxt_eqcl[sufa[i + 1]] = nxt_eqcl[sufa[i]];
+      } else {
+        nxt_eqcl[sufa[i + 1]] = nxt_eqcl[sufa[i]] + 1;
+      }
+    }
+    swap(eqcl, nxt_eqcl);
+  }
 }
