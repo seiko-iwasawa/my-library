@@ -21,6 +21,7 @@ Secondary algorithms.
 
 ### String
 Algorithms with strings.
+* [Aho-Corasik](/my-library/String/Aho-Corasik.cpp) - it builds suffix links in trie.
 * [Hash string](/my-library/String/Hash%20string.cpp) - polynomial hash implementation.
 * [LCP](/my-library/String/LCP.cpp) - longest common prefix array (LCP array) implementation; it stores the lengths of the longest common prefixes (LCPs) between all pairs of consecutive suffixes in a sorted suffix array.
 * [Prefix function](/my-library/String/Prefix%20function.cpp) - for all prefixes, it stores the lengths of the longest prefix suffix that matches the beginning of the prefix and is not equal to it.
@@ -51,6 +52,12 @@ Algorithms with graphs.
 * [HLD](/my-library/Graph/HLD.cpp) - it builds heavy-light decomposition of the tree. It divides the edges into groups so that between the root and each vertex there are at most `log` groups.
 * [Kuhn](/my-library/Graph/Kuhn.cpp) - it solves maximum bipartite matching problem.
 * [LCA binary jumps](/my-library/Graph/LCA%20binary%20jumps.cpp) - for each vertex in the tree, it builds an array of binary jumps (`2**k`-th parent for each k). Then, it answers to a query "least common ancestor for v and u" (LCA) in O(log n).
+* [LCA sparse table](/my-library/Graph/LCA%20sparse%20table.cpp) - it builds ETT pairs of numbers (`depth`, `vertex`). Then, it builds sparse table for this array and answers to a query "least common ancestor for v and u" (LCA) in O(1).
+* [MST](/my-library/Graph/MST.cpp) - it builds a minimal spanning tree for the graph using Kruskal's algorithm.
+* [Retrograde analysis](/my-library/Graph/Retrograde%20analysis.cpp) - it calculates all states (`WIN`, `DRAW` or `LOSE`) for a symmetric game on directred graph.
+* [SCC](/my-library/Graph/SCC.cpp) - it builds strongly connected components.
+* [Topsort](/my-library/Graph/Topsort.cpp) - it sorts DAG's vertexes such that all edges go forward.
+* [Vengeric algorithm](/my-library/Graph/Vengeric%20algorithm.cpp) - it solves maximum bipartite matching problem for a weighted graph.
 
 ### Data Structure
 Tricky objects that allow you to do useful things.
