@@ -11,6 +11,8 @@ Comments: It is better not to comment code. Comment only if it is neccesary. For
 
 ### Basic
 Secondary algorithms.
+* [1D1D O(n)](/my-library/Basic/1D1D%20O(n).cpp) - dp optimization for special tasks.
+* [1D1D](/my-library/Basic/1D1D.cpp) - dp optimization for special tasks.
 * [Binary Search](/my-library/Basic/Binary%20search.cpp) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log(x / EPS))).
 * [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - fast memory allocator that incorrectly frees it.
 * [Longest Increasing Subsequence](my-library/Basic/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
