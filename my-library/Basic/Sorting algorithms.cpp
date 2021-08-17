@@ -1,10 +1,10 @@
 #include <algorithm>
-#include <ctime>
 #include <iostream>
-#include <queue>
 #include <random>
 
 using namespace std;
+
+mt19937 rnd(7);
 
 const int N = 1e5;
 
@@ -35,13 +35,27 @@ void insertion_sort() {
   }
 }
 
-void unstable_selection_sort() {
+void selection_sort() {
   for (int i = 0; i < n; ++i) {
     swap(a[i], *min_element(a + i, a + n));
   }
 }
 
-// TODO stable_selection_sort, quick_sort, radix_sort
+void quick_sort(int l, int r) {
+  if (r - l <= 1 || count(a + l, a + r, a[l]) == r - l) {
+    return;
+  }
+  int x = a[rnd() % n];
+  int mid = l;
+  for (int i = l; i < r; ++i) {
+    if (a[i] <= x) {
+      swap(a[mid], a[i]);
+      ++mid;
+    }
+  }
+  quick_sort(l, mid - 1);
+  quick_sort(mid, r);
+}
 
 void heap_sort() {
   make_heap(a, a + n);
@@ -75,6 +89,23 @@ void counting_sort() {
   }
 }
 }  // namespace counting_sort
+
+void radix_sort() {
+  const int D = 10;
+  int mx = *max_element(a, a + n);
+  vector<int> cnt[D];
+  for (int k = 1; k < mx; k *= D) {
+    for (int i = 0; i < n; ++i) {
+      cnt[a[i] / k % D].push_back(i);
+    }
+    for (int i = 0, x = 0; x < D; ++x) {
+      for (int j = 0; j < cnt[x].size(); ++j) {
+        a[i++] = cnt[x][j];
+      }
+      cnt[x].clear();
+    }
+  }
+}
 
 namespace fast_sort {
 

@@ -72,9 +72,6 @@ Programs to compare solutions.
 
 ## TODO
 
-### Basic
-* stable_selection_sort, quick_sort, radix_sort
-
 ### DP
 * knuth's optimization
 * divide and conquer
