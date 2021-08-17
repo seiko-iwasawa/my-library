@@ -45,7 +45,7 @@ struct Skiplist {
       res.push_back(cur);
       cur = cur->D;
     }
-    reverse(ALL(res));
+    reverse(res.begin(), res.end());
     return res;
   }
 

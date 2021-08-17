@@ -2,10 +2,8 @@
 This is a library with many things for competitive programming.
 
 ## Lib's rules
-
-Formatting: Google
-
-Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files ([example](/my-library/Data%20Structure/Persistent%20Array.cpp)). 
+This library just shows possible implementations, it may not be very good or convenient.
+Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files ([example](/my-library/Data%20Structure/Persistent%20Array.cpp)).
 
 ## Title
 
@@ -77,6 +75,8 @@ Programs to compare solutions.
 ### DP
 * knuth's optimization
 * divide and conquer
+* CHT
+* lambda
 
 ### String
 * deterministic finite automation
@@ -100,6 +100,7 @@ Programs to compare solutions.
 * seg tree for sum with alternating signs
 
 ### Math
+* ntt
 * halfplane intersection
 * minkowski sum
 * burnside's theorem
