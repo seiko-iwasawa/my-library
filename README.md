@@ -97,7 +97,6 @@ Program to compare solutions.
 * seg tree for sum with alternating signs
 
 ### Math
-* fft
 * halfplane intersection
 * minkowski sum
 * burnside's theorem
