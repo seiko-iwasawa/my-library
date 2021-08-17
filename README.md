@@ -67,7 +67,7 @@ TODO
 TODO
 
 ### Stresstest
-Program to compare solutions.
+Programs to compare solutions.
 
 ## TODO
 
