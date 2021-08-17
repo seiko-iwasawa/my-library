@@ -10,7 +10,6 @@ Comments: It is better not to comment code. Comment only if it is neccesary. For
 ## Title
 
 ### Basic
-Secondary algorithms.
 * [Binary Search](/my-library/Basic/Binary%20search.cpp) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log(x / EPS))).
 * [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - fast memory allocator that incorrectly frees it.
 * [Fast input output](my-library/Basic/Fast%20input%20output.cpp) - simple input/output acceleration.
@@ -19,13 +18,11 @@ Secondary algorithms.
 * [Ternary search](my-library/Basic/Ternary%20search.cpp) - search algorithm that finds the maximum value for a convex upward array (all elements are unique) in O(log n).
 
 ### DP
-All about dynamic programming.
 * [1D1D O(n)](/my-library/Basic/1D1D%20O(n).cpp) - dp optimization for special tasks.
 * [1D1D](/my-library/Basic/1D1D.cpp) - dp optimization for special tasks.
 * [Longest Increasing Subsequence](my-library/Basic/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
 
 ### String
-Algorithms with strings.
 * [Aho-Corasik](/my-library/String/Aho-Corasik.cpp) - it builds suffix links in trie.
 * [Hash string](/my-library/String/Hash%20string.cpp) - polynomial hash implementation.
 * [LCP](/my-library/String/LCP.cpp) - longest common prefix array (LCP array) implementation; it stores the lengths of the longest common prefixes (LCPs) between all pairs of consecutive suffixes in a sorted suffix array.
@@ -35,7 +32,6 @@ Algorithms with strings.
 * [Z function](/my-library/String/Z%20function.cpp) - for all suffixes except the string itself, it stores the lengths of the longest suffix prefix that matches the beginning of the prefix.
 
 ### Graph
-Algorithms with graphs.
 * [0-1 BFS](/my-library/Graph/0-1%20BFS.cpp) - BFS for a graph with edge weights 0 or 1.
 * [0-k BFS](/my-library/Graph/0-k%20BFS.cpp) - BFS for a graph with integer edge weights from 0 to k.
 * [BFS](/my-library/Graph/BFS.cpp) - breadth-first search.
@@ -65,10 +61,10 @@ Algorithms with graphs.
 * [Vengeric algorithm](/my-library/Graph/Vengeric%20algorithm.cpp) - it solves maximum bipartite matching problem for a weighted graph.
 
 ### Data Structure
-Tricky objects that allow you to do useful things.
+TODO
 
 ### Math
-Helpful math and combinatorial algorithms.
+TODO
 
 ### Stresstest
 Program to compare solutions.
@@ -76,9 +72,11 @@ Program to compare solutions.
 ## TODO
 
 ### Basic
+* stable_selection_sort, quick_sort, radix_sort
+
+### DP
 * knuth's optimization
 * divide and conquer
-* stable_selection_sort, quick_sort, radix_sort
 
 ### String
 * deterministic finite automation
