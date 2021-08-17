@@ -6,6 +6,8 @@ This library just shows possible implementations, it may not be very good or con
 
 Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files ([example](/my-library/Data%20Structure/Persistent%20Array.cpp)).
 
+Filenames: File names must start with a capital letter (or a digit), exluding files in the folder `Stresstest`. You can use spaces.
+
 ## Title
 
 ### Basic
