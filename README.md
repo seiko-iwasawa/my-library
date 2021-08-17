@@ -3,6 +3,7 @@ This is a library with many things for competitive programming.
 
 ## Lib's rules
 This library just shows possible implementations, it may not be very good or convenient.
+
 Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files ([example](/my-library/Data%20Structure/Persistent%20Array.cpp)).
 
 ## Title
