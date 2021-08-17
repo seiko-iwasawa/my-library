@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 
 const int _MAX_MEM = 1e8;
