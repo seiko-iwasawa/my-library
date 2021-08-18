@@ -64,7 +64,8 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Vengeric algorithm](/my-library/Graph/Vengeric%20algorithm.cpp) - it solves maximum bipartite matching problem for a weighted graph.
 
 ### Data Structure
-TODO
+For any structure, we can update it and get information from.
+* [Convex Hull Trick](/my-library/Data Structure/Convex Hull Trick.cpp) - aka CHT; `update`: add lines $kx+b$ in non-increasing order of $k$ in O(1) armotized; `get`: get min kx+b for chosen x in O(logn).
 
 ### Math
 TODO
@@ -76,7 +77,6 @@ Programs to compare solutions.
 
 ### DP
 * divide and conquer
-* CHT
 * lambda
 
 ### String
