@@ -17,11 +17,13 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Pragmas](my-library/Basic/Pragmas.cpp) - useful pragmas.
 * [Sorting algorithms](my-library/Basic/Sorting%20algorithms.cpp) - various sorts of the array.
 * [Ternary search](my-library/Basic/Ternary%20search.cpp) - search algorithm that finds the maximum value for a convex upward array (all elements are unique) in O(log n).
+* [Tricks](my-library/Basic/Tricks.cpp) - many useful things in C++ for competitive programming.
 
 ### DP
-* [1D1D O(n)](/my-library/Basic/1D1D%20O(n).cpp) - dp optimization for special tasks.
-* [1D1D](/my-library/Basic/1D1D.cpp) - dp optimization for special tasks.
-* [Longest Increasing Subsequence](my-library/Basic/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
+* [1D1D O(n)](/my-library/DP/1D1D O(n).cpp) - dp optimization for special tasks.
+* [1D1D](/my-library/DP/1D1D.cpp) - dp optimization for special tasks.
+* [Knuth](/my-library/DP/Knuth.cpp) - dp optimization for special 2D tasks.
+* [Longest Increasing Subsequence](my-library/DP/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
 
 ### String
 * [Aho-Corasik](/my-library/String/Aho-Corasik.cpp) - it builds suffix links in trie.
