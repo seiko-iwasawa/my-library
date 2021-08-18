@@ -23,7 +23,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [1D1D O(n)](/my-library/DP/1D1D%20O(n).cpp) - dp optimization for special tasks.
 * [1D1D](/my-library/DP/1D1D.cpp) - dp optimization for special tasks.
 * [Knuth](/my-library/DP/Knuth.cpp) - dp optimization for special 2D tasks.
-* [Longest Increasing Subsequence](my-library/DP/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
+* [Longest Increasing Subsequence](my-library/DP/Longest%20Increasing%20Subsequence.cpp) aka LIS - typically DP-problem.
 
 ### String
 * [Aho-Corasik](/my-library/String/Aho-Corasik.cpp) - it builds suffix links in trie.
