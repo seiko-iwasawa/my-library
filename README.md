@@ -72,9 +72,6 @@ Programs to compare solutions.
 
 ## TODO
 
-### Basic
-* C++ tricks
-
 ### DP
 * knuth's optimization
 * divide and conquer
