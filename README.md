@@ -88,6 +88,7 @@ Programs to compare solutions.
 * 2-connected components
 * boruvka's algorithm
 * prim's algorithm
+* stoer-wagner algorithm
 
 ### Data Structure
 * persistent seg tree lazy propagation
