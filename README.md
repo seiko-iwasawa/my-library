@@ -38,7 +38,6 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [0-1 BFS](/my-library/Graph/0-1%20BFS.cpp) - BFS for a graph with edge weights 0 or 1.
 * [0-k BFS](/my-library/Graph/0-k%20BFS.cpp) - BFS for a graph with integer edge weights from 0 to k.
 * [BFS](/my-library/Graph/BFS.cpp) - breadth-first search.
-* [Bellman-Ford with queue](/my-library/Graph/Bellman-Ford%20with%20queue.cpp) - Bellman-Ford implementation that is usually faster.
 * [Bellman-Ford](/my-library/Graph/Bellman-Ford.cpp) - it builds an array that stores the distances between fixed start and vertices, or `+-INF` if the distance does not exist.
 * [Centroid Decomposition](/my-library/Graph/Centroid%20Decomposition.cpp) - it builds a centroid tree, where the size of each subtree is no more than half the size of the parent.
 * [Cut edges](/my-library/Graph/Cut%20edges.cpp) - it builds an array of cut edges for a graph that does not have multiple edges and loop. Cut edge is an only edge that connects two or more components.
@@ -60,6 +59,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [MST](/my-library/Graph/MST.cpp) - it builds a minimal spanning tree for the graph using Kruskal's algorithm.
 * [Retrograde analysis](/my-library/Graph/Retrograde%20analysis.cpp) - it calculates all states (`WIN`, `DRAW` or `LOSE`) for a symmetric game on directred graph.
 * [SCC](/my-library/Graph/SCC.cpp) - it builds strongly connected components.
+* [SPFA](/my-library/Graph/SPFA.cpp) - Bellman-Ford implementation that is usually faster.
 * [Topsort](/my-library/Graph/Topsort.cpp) - it sorts DAG's vertexes such that all edges go forward.
 * [Vengeric algorithm](/my-library/Graph/Vengeric%20algorithm.cpp) - it solves maximum bipartite matching problem for a weighted graph.
 
