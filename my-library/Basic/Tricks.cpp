@@ -37,6 +37,10 @@ void tricks() {
   arr.erase(unique(ALL(arr)), arr.end());
   int shift = 10;
   rotate(a, a + shift, a + n);
+  int mx = a[0], opt = 0;
+  for (int i = 0; i < n; ++i) {
+    tie(mx, opt) = max(make_tuple(mx, opt), make_tuple(a[i], i));
+  }
   vector<int> a = {1, 2, 3}, b = {1, 3, 4};
   arr.clear();
   merge(ALL(a), ALL(b), back_inserter(arr));

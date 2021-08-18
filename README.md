@@ -73,7 +73,6 @@ Programs to compare solutions.
 ## TODO
 
 ### DP
-* knuth's optimization
 * divide and conquer
 * CHT
 * lambda
