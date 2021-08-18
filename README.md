@@ -20,7 +20,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Tricks](my-library/Basic/Tricks.cpp) - many useful things in C++ for competitive programming.
 
 ### DP
-* [1D1D O(n)](/my-library/DP/1D1D O(n).cpp) - dp optimization for special tasks.
+* [1D1D O(n)](/my-library/DP/1D1D%20O(n).cpp) - dp optimization for special tasks.
 * [1D1D](/my-library/DP/1D1D.cpp) - dp optimization for special tasks.
 * [Knuth](/my-library/DP/Knuth.cpp) - dp optimization for special 2D tasks.
 * [Longest Increasing Subsequence](my-library/DP/Longest%20Increasing%20Subsequence.cpp) - typically dynamic programming (DP) problem.
@@ -66,6 +66,14 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 ### Data Structure
 For any structure, we can update it and get information from.
 * [Convex Hull Trick](/my-library/Data%20Structure/Convex%20Hull%20Trick.cpp) - aka CHT; `update`: add lines kx+b in non-increasing order of k in O(1) armotized; `get`: get min kx+b for chosen x in O(logn).
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
+* [](/my-library/Data%20Structure/.cpp) - 
 
 ### Math
 TODO
