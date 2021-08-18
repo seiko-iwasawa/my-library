@@ -64,16 +64,17 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Vengeric algorithm](/my-library/Graph/Vengeric%20algorithm.cpp) - it solves maximum bipartite matching problem for a weighted graph.
 
 ### Data Structure
-For any structure, we can update it and get information from.
+For any structure, we can update it and get information from. Some structures have a special build stage.
 * [Convex Hull Trick](/my-library/Data%20Structure/Convex%20Hull%20Trick.cpp) - aka CHT; `update`: add lines kx+b in non-increasing order of k in O(1) armotized; `get`: get min kx+b for chosen x in O(logn).
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
-* [](/my-library/Data%20Structure/.cpp) - 
+* [Deque](/my-library/Data%20Structure/Deque.cpp) - `update`: push/erase first/last element in O(1); `get`: get the first/last element in O(1).
+* [Disjoint Set Union](/my-library/Data%20Structure/.cpp) - aka DSU; `build`: O(n); `update`: join two sets in O(A^-1(n)) armotized; `get`: find the leader of the set in O(A^-1(n)) armotized. 
+* [Fenwick](/my-library/Data%20Structure/Fenwick.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
+* [Heap](/my-library/Data%20Structure/.cpp) - `build`: O(n); `update`: insert element in O(logn), erase max element in O(logn); `get`: get the max element.
+* [Li Chao](/my-library/Data%20Structure/Li%20Chao.cpp) - `update`: add line kx+b in O(logC); `get`: get min kx+b for chosen x in O(logn).
+* [Persistent Array](/my-library/Data%20Structure/Persistent%20Array.cpp) - `update`: set a_i=x in O(logn); `get`: get a_i in O(logn).
+* [Persistent Segment Tree](/my-library/Data%20Structure/Persistent%20Segment%20Tree.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
+* [Persistent Stack](/my-library/Data%20Structure/Persistent%20Stack.cpp) - `update`: push back in O(1); `get`: get back in O(1).
+* [Queue](/my-library/Data%20Structure/Queue.cpp) - `update`: push element at the end in O(1), pop element from the top in O(1); `get`: get the first element in O(1).
 
 ### Math
 TODO
@@ -101,6 +102,7 @@ Programs to compare solutions.
 * stoer-wagner algorithm
 
 ### Data Structure
+* non-amortized dsu
 * persistent seg tree lazy propagation
 * suffix tree
 * suffix automat
