@@ -65,7 +65,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 
 ### Data Structure
 For any structure, we can update it and get information from.
-* [Convex Hull Trick](/my-library/Data Structure/Convex Hull Trick.cpp) - aka CHT; `update`: add lines $kx+b$ in non-increasing order of $k$ in O(1) armotized; `get`: get min kx+b for chosen x in O(logn).
+* [Convex Hull Trick](/my-library/Data%20Structure/Convex%20Hull%20Trick.cpp) - aka CHT; `update`: add lines kx+b in non-increasing order of k in O(1) armotized; `get`: get min kx+b for chosen x in O(logn).
 
 ### Math
 TODO
