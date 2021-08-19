@@ -151,3 +151,5 @@ Programs to compare solutions.
 * burnside's theorem
 * redfield–polya theorem
 * improve geometry
+* mobius function
+* euler's totient function
