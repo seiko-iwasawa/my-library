@@ -20,8 +20,8 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Tricks](my-library/Basic/Tricks.cpp) - many useful things in C++ for competitive programming.
 
 ### DP
-* [1D1D O(n)](/my-library/DP/1D1D%20O(n).cpp) - dp optimization for special tasks.
-* [1D1D](/my-library/DP/1D1D.cpp) - dp optimization for special tasks.
+* [1D1D O(n)](/my-library/DP/1D1D%20O(n).cpp) - [link1](https://codeforces.com/blog/entry/8219?#comment-139241) - dp optimization for special tasks.
+* [1D1D](/my-library/DP/1D1D.cpp) - [link1](https://www.sites.google.com/site/ubcprogrammingteam/news/1d1ddynamicprogrammingoptimization-parti) - dp optimization for special tasks.
 * [Knuth](/my-library/DP/Knuth.cpp) - dp optimization for special 2D tasks.
 * [Longest Increasing Subsequence](my-library/DP/Longest%20Increasing%20Subsequence.cpp) `aka LIS` - typically DP-problem.
 
@@ -41,7 +41,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Bellman-Ford](/my-library/Graph/Bellman-Ford.cpp) - it builds an array that stores the distances between fixed start and vertices, or `+-INF` if the distance does not exist.
 * [Centroid Decomposition](/my-library/Graph/Centroid%20Decomposition.cpp) - it builds a centroid tree, where the size of each subtree is no more than half the size of the parent.
 * [Cut edges](/my-library/Graph/Cut%20edges.cpp) - it builds an array of cut edges for a graph that does not have multiple edges and loop. Cut edge is an only edge that connects two or more components.
-* [Cut vertices](/my-library/Graph/Cut%20vertices.cpp) - it builds an array of of cut vertices for a graph. Cut vertex if an only vertex that connects two or more components.
+* [Cut vertices](/my-library/Graph/Cut%20vertices.cpp) - it builds an array of cut vertices for a graph. Cut vertex if an only vertex that connects two or more components.
 * [DFS tree](/my-library/Graph/DFS%20tree.cpp) - DFS for a tree.
 * [DFS](/my-library/Graph/DFS.cpp) - depth-first search.
 * [Dijkstra O(Elog)](/my-library/Graph/Dijkstra%20O(Elog).cpp) - Dijkstra implementation with priority queue.
