@@ -87,7 +87,26 @@ For any structure, we can update it and get information from. Some structures ha
 * [Treap](/my-library/Data%20Structure/Treap.cpp) - possible BST (Binary Search Tree) implementation.
 
 ### Math
-TODO
+* [Berlekamp-Massey mod2](/my-library/Math/Berlekamp-Massey%20mod2.cpp) - Berlekamp-Massey in the field modulo 2.
+* [Berlekamp-Massey](/my-library/Math/Berlekamp-Massey.cpp) - it finds the shortest linear feedback shift register in O(nk). 
+* [Big Integer](/my-library/Math/Big%20Integer.cpp) - template for working with long arithmetic.
+* [Chinese Remainder Theorem](/my-library/Math/Chinese%20Remainder%20Theorem.cpp) - it finds the smallest solution for a system of equation in two modules.
+* [FFT](/my-library/Math/FFT.cpp) - implementation of discrete fourier transformation in O(nlogn).
+* [GCD extended](/my-library/Math/GCD%20extended.cpp) - it finds a solution to the equation ax+by=gcd(a, b).
+* [GCD](/my-library/Math/GCD.cpp) - it finds the greatest common divisor.
+* [Gauss mod2](/my-library/Math/Gauss%20mod2.cpp) - Gauss in the field modulo 2.
+* [Gauss](/my-library/Math/Gauss.py) - it finds a solution for a system of linear equations.
+* [Geometry](/my-library/Math/Geometry.cpp) - geometry template.
+* [Karatsuba intmul](/my-library/Math/Karatsuba%20intmul.cpp) - possible implementation of the multiplication two integers using the Karatsuba algorithm.
+* [Karatsuba](/my-library/Math/Karatsuba.cpp) - it multiplies two polynomials in O(n^log2(3)).
+* [Kth permutation](/my-library/Math/Kth%20permutation.cpp) - it builds the kth permutation in lexicographic order.
+* [Matrix](/my-library/Math/Matrix.cpp) - template for working with matrices.
+* [Miller-Rabin](/my-library/Math/Miller-Rabin.cpp) - probabilistic primality test.
+* [Modular arithmetic](/my-library/Math/Modular%20arithmetic.cpp) - template for working with a field modulo.
+* [Next permutation](/my-library/Math/Next%20permutation.cpp) - it builds the next permutation in lexicographic order.
+* [Pollard](/my-library/Math/Pollard.cpp) - an algorithm for factorization.
+* [Pollard (py)](/my-library/Math/Pollard.py) - Python implementation of Pollard's rho algorithm.
+* [Sieve of Eratosthenes](/my-library/Math/Sieve%20of%20Eratosthenes.cpp) - it builds the smallest prime divisor for each number in O(nloglogn).
 
 ### Stresstest
 Programs to compare solutions.
