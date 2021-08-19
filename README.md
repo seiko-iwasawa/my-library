@@ -11,13 +11,19 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 ## Title
 
 ### Basic
-* [Binary Search](/my-library/Basic/Binary%20search.cpp) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log(x / EPS))).
-* [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - fast memory allocator that incorrectly frees it.
+* [Binary Search](/my-library/Basic/Binary%20search.cpp) - [link1](https://codeforces.com/edu/course/2/lesson/6/1) [link2](https://en.wikipedia.org/wiki/Binary_search_algorithm) - search algorithm that finds a target value (lower bound in O(log n) and sqrt(n) in O(log(x / EPS))).
+* [Fast Allocator](/my-library/Basic/Fast%20Allocator.cpp) - [link1](https://os.phil-opp.com/allocator-designs/#bump-allocator) - fast memory allocator that incorrectly frees it.
 * [Fast input output](my-library/Basic/Fast%20input%20output.cpp) - simple input/output acceleration.
 * [Pragmas](my-library/Basic/Pragmas.cpp) - useful pragmas.
-* [Sorting algorithms](my-library/Basic/Sorting%20algorithms.cpp) - various sorts of the array.
-* [Ternary search](my-library/Basic/Ternary%20search.cpp) - search algorithm that finds the maximum value for a convex upward array (all elements are unique) in O(log n).
-* [Tricks](my-library/Basic/Tricks.cpp) - many useful things in C++ for competitive programming.
+* [Sorting algorithms](my-library/Basic/Sorting%20algorithms.cpp) - [link1](https://en.wikipedia.org/wiki/Sorting_algorithm) - various sorts of the array.
+* [Ternary search](my-library/Basic/Ternary%20search.cpp) - [link1](https://cp-algorithms.com/num_methods/ternary_search.html) [link2](https://en.wikipedia.org/wiki/Ternary_search) - search algorithm that finds the maximum value for a convex upward array (all elements are unique) in O(log n).
+https://codeforces.com/blog/entry/15643
+https://codeforces.com/blog/entry/74684
+https://codeforces.com/blog/entry/91347
+* [Tricks](my-library/Basic/Tricks.cpp) - [link1](https://codeforces.com/blog/entry/15643
+) [link2](https://codeforces.com/blog/entry/74684
+) [link3](https://codeforces.com/blog/entry/91347
+) - many useful things in C++ for competitive programming.
 
 ### DP
 * [1D1D O(n)](/my-library/DP/1D1D%20O(n).cpp) - [link1](https://codeforces.com/blog/entry/8219?#comment-139241) - dp optimization for special tasks.
