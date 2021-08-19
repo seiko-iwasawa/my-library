@@ -17,9 +17,6 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Pragmas](my-library/Basic/Pragmas.cpp) - useful pragmas.
 * [Sorting algorithms](my-library/Basic/Sorting%20algorithms.cpp) - [link1](https://en.wikipedia.org/wiki/Sorting_algorithm) - various sorts of the array.
 * [Ternary search](my-library/Basic/Ternary%20search.cpp) - [link1](https://cp-algorithms.com/num_methods/ternary_search.html) [link2](https://en.wikipedia.org/wiki/Ternary_search) - search algorithm that finds the maximum value for a convex upward array (all elements are unique) in O(log n).
-https://codeforces.com/blog/entry/15643
-https://codeforces.com/blog/entry/74684
-https://codeforces.com/blog/entry/91347
 * [Tricks](my-library/Basic/Tricks.cpp) - [link1](https://codeforces.com/blog/entry/15643
 ) [link2](https://codeforces.com/blog/entry/74684
 ) [link3](https://codeforces.com/blog/entry/91347
