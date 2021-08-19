@@ -119,9 +119,13 @@ Programs to compare solutions.
 ### DP
 * divide and conquer
 * lambda
+* dp by submasks
+* sos-dp
 
 ### String
 * deterministic finite automation
+* tandem repeats
+* manacher's algorithm
 
 ### Graph
 * mincut
@@ -133,6 +137,7 @@ Programs to compare solutions.
 * prim's algorithm
 * stoer-wagner algorithm
 * sum of games
+* 2-SAT
 
 ### Data Structure
 * non-amortized dsu
@@ -143,6 +148,11 @@ Programs to compare solutions.
 * Segment Tree Beats
 * finish up treap
 * seg tree for sum with alternating signs
+* disjoint sparse table
+* minimum stack
+* minimum queue
+* sqrt decomposition
+* binary trie
 
 ### Math
 * ntt
