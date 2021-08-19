@@ -1,6 +1,3 @@
-//#pragma GCC optimize("Ofast")
-//#pragma GCC target("avx2")
-
 #include <algorithm>
 #include <bitset>
 #include <cassert>
@@ -16,13 +13,12 @@
 #include <string>
 #include <vector>
 
-#define __int128 short  // delete this line for correct work
-
 using namespace std;
 
 const int K = 16;
 const int N = 2e5 / K + 7;
 const int C = 77;
+const int BASE = 1e16;
 
 int n, m;
 __int128 a[N], b[N], c[4 * N];
@@ -83,10 +79,7 @@ void print(long long x, int d) {
   }
 }
 
-signed pseudo_main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  cout.tie(NULL);
+void solve() {
   string sa, sb;
   cin >> sa >> sb;
   n = sa.size(), m = sb.size();
@@ -101,8 +94,8 @@ signed pseudo_main() {
   fill(c + n + m - 1, c + 4 * N, 0);
   int sz = 1;
   for (int i = 0; i < 4 * N - 1; ++i) {
-    c[i + 1] += c[i] / 10000000000000000;
-    if ((c[i] %= 10000000000000000) != 0) {
+    c[i + 1] += c[i] / BASE;
+    if ((c[i] %= BASE) != 0) {
       sz = i + 1;
     }
   }
@@ -111,5 +104,4 @@ signed pseudo_main() {
     print(c[i], K);
   }
   cout << '\n';
-  return 0;
 }
