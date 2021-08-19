@@ -41,9 +41,9 @@ void tricks() {
   for (int i = 0; i < n; ++i) {
     tie(mx, opt) = max(make_tuple(mx, opt), make_tuple(a[i], i));
   }
-  vector<int> a = {1, 2, 3}, b = {1, 3, 4};
+  vector<int> x = {1, 2, 3}, y = {1, 3, 4};
   arr.clear();
-  merge(ALL(a), ALL(b), back_inserter(arr));
+  merge(ALL(x), ALL(y), back_inserter(arr));
   set<int> s(ALL(arr));
   if (s.count(1)) {
     cout << "1 exists\n";
@@ -58,4 +58,5 @@ void tricks() {
   auto cmp = [&](vector<int> x, vector<int> y) {
     return tie(x[1], x[0]) < tie(y[1], y[0]);
   };
+  nth_element(a, a + 2, a + n);
 }
