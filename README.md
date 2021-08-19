@@ -82,7 +82,7 @@ For any structure, we can update it and get information from. Some structures ha
 * [Segment Tree](/my-library/Data%20Structure/Segment%20Tree.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
 * [Skiplist with implicit keys](/my-library/Data%20Structure/Skiplist%20with%20implicit%20keys.cpp) - doubly linked list that can do many things in O(logn).
 * [Skiplist](/my-library/Data%20Structure/Skiplist.cpp) - it can do all whatever BST can.
-* [Sparse Table](/my-library/Data%20Structure/Sparse%20Table.cpp) - `build`: O(nlogn); `get`: get function on the segment in O(1).
+* [Sparse Table](/my-library/Data%20Structure/Sparse%20Table.cpp) - [link1](https://cp-algorithms.com/data_structures/sparse-table.html) - `build`: O(nlogn); `get`: get function on the segment in O(1).
 * [Split Rebuild](/my-library/Data%20Structure/Split%20Rebuild.cpp) - powerful modification for sqrt decomposition with armotized time complexity.
 * [Stack](/my-library/Data%20Structure/Stack.cpp) - `update`: push back in O(1); `get`: get back in O(1).
 * [Top Bottom Segment Tree](/my-library/Data%20Structure/Top%20Bottom%20Segment%20Tree.cpp) - fast implementation of segment tree.
@@ -93,8 +93,8 @@ For any structure, we can update it and get information from. Some structures ha
 * [Berlekamp-Massey mod2](/my-library/Math/Berlekamp-Massey%20mod2.cpp) - Berlekamp-Massey in the field modulo 2.
 * [Berlekamp-Massey](/my-library/Math/Berlekamp-Massey.cpp) - it finds the shortest linear feedback shift register in O(nk). 
 * [Big Integer](/my-library/Math/Big%20Integer.cpp) - template for working with long arithmetic.
-* [Chinese Remainder Theorem](/my-library/Math/Chinese%20Remainder%20Theorem.cpp) - it finds the smallest solution for a system of equation in two modules.
-* [FFT](/my-library/Math/FFT.cpp) - implementation of discrete fourier transformation in O(nlogn).
+* [Chinese Remainder Theorem](/my-library/Math/Chinese%20Remainder%20Theorem.cpp) - [link1](https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Case_of_two_moduli) + [link2](https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Generalization_to_non-coprime_moduli) - it finds the smallest solution for a system of equation in two modules.
+* [FFT](/my-library/Math/FFT.cpp) - [link1](https://codeforces.com/blog/entry/43499) [link2](https://cp-algorithms.com/algebra/fft.html) - implementation of discrete fourier transformation in O(nlogn).
 * [GCD extended](/my-library/Math/GCD%20extended.cpp) - [link1](https://cp-algorithms.com/algebra/extended-euclid-algorithm.html) - it finds a solution to the equation ax+by=gcd(a, b).
 * [GCD](/my-library/Math/GCD.cpp) - [link1](https://cp-algorithms.com/algebra/euclid-algorithm.html) - it finds the greatest common divisor.
 * [Gauss mod2](/my-library/Math/Gauss%20mod2.cpp) - Gauss in the field modulo 2.
