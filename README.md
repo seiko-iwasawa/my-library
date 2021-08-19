@@ -132,6 +132,7 @@ Programs to compare solutions.
 * boruvka's algorithm
 * prim's algorithm
 * stoer-wagner algorithm
+* sum of games
 
 ### Data Structure
 * non-amortized dsu
