@@ -59,10 +59,10 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Kuhn](/my-library/Graph/Kuhn.cpp) - it solves maximum bipartite matching problem.
 * [LCA binary jumps](/my-library/Graph/LCA%20binary%20jumps.cpp) - for each vertex in the tree, it builds an array of binary jumps (`2**k`-th parent for each k). Then, it answers to a query "least common ancestor for v and u" (LCA) in O(log n).
 * [LCA sparse table](/my-library/Graph/LCA%20sparse%20table.cpp) - it builds ETT pairs of numbers (`depth`, `vertex`). Then, it builds sparse table for this array and answers to a query "least common ancestor for v and u" (LCA) in O(1).
-* [MST](/my-library/Graph/MST.cpp) - it builds a minimal spanning tree for the graph using Kruskal's algorithm.
+* [MST](/my-library/Graph/MST.cpp) - [link1](https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html) - it builds a minimal spanning tree for the graph using Kruskal's algorithm.
 * [Retrograde analysis](/my-library/Graph/Retrograde%20analysis.cpp) - it calculates all states (`WIN`, `DRAW` or `LOSE`) for a symmetric game on directred graph.
 * [SCC](/my-library/Graph/SCC.cpp) - it builds strongly connected components.
-* [SPFA](/my-library/Graph/SPFA.cpp) - Bellman-Ford implementation that is usually faster.
+* [SPFA](/my-library/Graph/SPFA.cpp) - [link1](https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm) [] - Bellman-Ford implementation that is usually faster.
 * [Topsort](/my-library/Graph/Topsort.cpp) - it sorts DAG's vertexes such that all edges go forward.
 * [Vengeric algorithm](/my-library/Graph/Vengeric%20algorithm.cpp) - it solves maximum bipartite matching problem for a weighted graph.
 
@@ -95,8 +95,8 @@ For any structure, we can update it and get information from. Some structures ha
 * [Big Integer](/my-library/Math/Big%20Integer.cpp) - template for working with long arithmetic.
 * [Chinese Remainder Theorem](/my-library/Math/Chinese%20Remainder%20Theorem.cpp) - it finds the smallest solution for a system of equation in two modules.
 * [FFT](/my-library/Math/FFT.cpp) - implementation of discrete fourier transformation in O(nlogn).
-* [GCD extended](/my-library/Math/GCD%20extended.cpp) - it finds a solution to the equation ax+by=gcd(a, b).
-* [GCD](/my-library/Math/GCD.cpp) - it finds the greatest common divisor.
+* [GCD extended](/my-library/Math/GCD%20extended.cpp) - [link1](https://cp-algorithms.com/algebra/extended-euclid-algorithm.html) - it finds a solution to the equation ax+by=gcd(a, b).
+* [GCD](/my-library/Math/GCD.cpp) - [link1](https://cp-algorithms.com/algebra/euclid-algorithm.html) - it finds the greatest common divisor.
 * [Gauss mod2](/my-library/Math/Gauss%20mod2.cpp) - Gauss in the field modulo 2.
 * [Gauss](/my-library/Math/Gauss.py) - it finds a solution for a system of linear equations.
 * [Geometry](/my-library/Math/Geometry.cpp) - geometry template.
@@ -104,12 +104,12 @@ For any structure, we can update it and get information from. Some structures ha
 * [Karatsuba](/my-library/Math/Karatsuba.cpp) - it multiplies two polynomials in O(n^log2(3)).
 * [Kth permutation](/my-library/Math/Kth%20permutation.cpp) - it builds the kth permutation in lexicographic order.
 * [Matrix](/my-library/Math/Matrix.cpp) - template for working with matrices.
-* [Miller-Rabin](/my-library/Math/Miller-Rabin.cpp) - probabilistic primality test.
+* [Miller-Rabin](/my-library/Math/Miller-Rabin.cpp) - [link1](https://cp-algorithms.com/algebra/primality_tests.html#toc-tgt-2) [link2](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) - probabilistic primality test.
 * [Modular arithmetic](/my-library/Math/Modular%20arithmetic.cpp) - template for working with a field modulo.
 * [Next permutation](/my-library/Math/Next%20permutation.cpp) - it builds the next permutation in lexicographic order.
-* [Pollard](/my-library/Math/Pollard.cpp) - an algorithm for factorization.
+* [Pollard](/my-library/Math/Pollard.cpp) - [link1](https://cp-algorithms.com/algebra/factorization.html#toc-tgt-5) [link2](https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm) - an algorithm for factorization.
 * [Pollard (py)](/my-library/Math/Pollard.py) - Python implementation of Pollard's rho algorithm.
-* [Sieve of Eratosthenes](/my-library/Math/Sieve%20of%20Eratosthenes.cpp) - it builds the smallest prime divisor for each number in O(nloglogn).
+* [Sieve of Eratosthenes](/my-library/Math/Sieve%20of%20Eratosthenes.cpp) - [link1](https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html) - it builds the smallest prime divisor for each number in O(nloglogn).
 
 ### Stresstest
 Programs to compare solutions.
