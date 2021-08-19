@@ -75,6 +75,16 @@ For any structure, we can update it and get information from. Some structures ha
 * [Persistent Segment Tree](/my-library/Data%20Structure/Persistent%20Segment%20Tree.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
 * [Persistent Stack](/my-library/Data%20Structure/Persistent%20Stack.cpp) - `update`: push back in O(1); `get`: get back in O(1).
 * [Queue](/my-library/Data%20Structure/Queue.cpp) - `update`: push element at the end in O(1), pop element from the top in O(1); `get`: get the first element in O(1).
+* [Segment Tree lazy propagation](/my-library/Data%20Structure/Segment%20Tree%20lazy%20propagation.cpp) - `update`: change values on the segment in O(logn); `get`: get function on the segment in O(logn).
+* [Segment Tree](/my-library/Data%20Structure/Segment%20Tree.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
+* [Skiplist with implicit keys](/my-library/Data%20Structure/Skiplist%20with%20implicit%20keys.cpp) - doubly linked list that can do many things in O(logn).
+* [Skiplist](/my-library/Data%20Structure/Skiplist.cpp) - it can do all whatever BST can.
+* [Sparse Table](/my-library/Data%20Structure/Sparse%20Table.cpp) - `build`: O(nlogn); `get`: get function on the segment in O(1).
+* [Split Rebuild](/my-library/Data%20Structure/Split%20Rebuild.cpp) - powerful modification for sqrt decomposition with armotized time complexity.
+* [Stack](/my-library/Data%20Structure/Stack.cpp) - `update`: push back in O(1); `get`: get back in O(1).
+* [Top Bottom Segment Tree](/my-library/Data%20Structure/Top%20Bottom%20Segment%20Tree.cpp) - fast implementation of segment tree.
+* [Treap with implicit keys](/my-library/Data%20Structure/Treap%20with%20implicit%20keys.cpp) - doubly linked list that can do many things in O(logn).
+* [Treap](/my-library/Data%20Structure/Treap.cpp) - possible BST (Binary Search Tree) implementation.
 
 ### Math
 TODO
