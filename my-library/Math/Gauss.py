@@ -15,7 +15,7 @@ def relax(a):
 
 N = int(input())
 used = [False] * N
-eq = [[0] * (N + 1) for _ range(N)]
+eq = [[0] * (N + 1) for _ in range(N)]
 for i in range(N):
     j = 0
     while j != N and (used[j] or eq[j][i] == 0):
