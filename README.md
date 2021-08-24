@@ -4,7 +4,7 @@ This is a library with many things for competitive programming.
 ## Lib's rules
 This library just shows possible implementations, it may not be very good or convenient.
 
-Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way. In the beginning specify used files ([example](/my-library/Data%20Structure/Persistent%20Array.cpp)).
+Comments: It is better not to comment code. Comment only if it is neccesary. For example, if you improve code later or if algorithm doesn't work in a well-known way.
 
 Filenames: File names must start with a capital letter (or a digit), exluding files in the folder `Stresstest`. You can use spaces.
 
@@ -57,6 +57,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [Ford-Fulkerson](/my-library/Graph/Ford-Fulkerson.cpp) - is solves max-flow problem.
 * [HLD](/my-library/Graph/HLD.cpp) - it builds heavy-light decomposition of the tree. It divides the edges into groups so that between the root and each vertex there are at most `log` groups.
 * [Kuhn](/my-library/Graph/Kuhn.cpp) - it solves maximum bipartite matching problem.
+* [Mincost](/my-library/Graph/Mincost.cpp) - it finds the maximum flow of the minimum cost.
 * [LCA binary jumps](/my-library/Graph/LCA%20binary%20jumps.cpp) - for each vertex in the tree, it builds an array of binary jumps (`2**k`-th parent for each k). Then, it answers to a query "least common ancestor for v and u" (LCA) in O(log n).
 * [LCA sparse table](/my-library/Graph/LCA%20sparse%20table.cpp) - it builds ETT pairs of numbers (`depth`, `vertex`). Then, it builds sparse table for this array and answers to a query "least common ancestor for v and u" (LCA) in O(1).
 * [MST](/my-library/Graph/MST.cpp) - [link1](https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html) - it builds a minimal spanning tree for the graph using Kruskal's algorithm.
