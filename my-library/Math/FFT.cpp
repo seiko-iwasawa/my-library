@@ -20,7 +20,7 @@ comp w[N];
 void prepare() {
   for (int x = 0; x < N; ++x) {
     for (int i = 0; i < K; ++i) {
-      rev[i] |= (x >> i & 1) << K - 1 - i;
+      rev[x] |= (x >> i & 1) << K - 1 - i;
     }
   }
   for (int i = 0; i < N; ++i) {
