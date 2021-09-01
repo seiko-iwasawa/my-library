@@ -27,6 +27,7 @@ Filenames: File names must start with a capital letter (or a digit), exluding fi
 * [1D1D](/my-library/DP/1D1D.cpp) - [link1](https://www.sites.google.com/site/ubcprogrammingteam/news/1d1ddynamicprogrammingoptimization-parti) - dp optimization for special tasks.
 * [Knuth](/my-library/DP/Knuth.cpp) - dp optimization for special 2D tasks.
 * [Longest Increasing Subsequence](my-library/DP/Longest%20Increasing%20Subsequence.cpp) `aka LIS` - typically DP-problem.
+* [SOS-DP](/my-library/DP/SOS-DP.cpp) - [link1](https://codeforces.com/blog/entry/45223) - calculates sum over subsets in O(n*2**n).
 
 ### String
 * [Aho-Corasik](/my-library/String/Aho-Corasik.cpp) - it builds suffix links in trie.
@@ -123,7 +124,6 @@ Programs to compare solutions.
 * divide and conquer
 * lambda
 * dp by submasks
-* sos-dp
 
 ### String
 * deterministic finite automation
