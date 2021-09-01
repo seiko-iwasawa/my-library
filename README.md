@@ -107,6 +107,7 @@ For any structure, we can update it and get information from. Some structures ha
 * [Kth permutation](/my-library/Math/Kth%20permutation.cpp) - it builds the kth permutation in lexicographic order.
 * [Matrix](/my-library/Math/Matrix.cpp) - template for working with matrices.
 * [Miller-Rabin](/my-library/Math/Miller-Rabin.cpp) - [link1](https://cp-algorithms.com/algebra/primality_tests.html#toc-tgt-2) [link2](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) - probabilistic primality test.
+* [Mobius](/my-library/Math/Mobius.cpp) - it builds the Mobius function in O(n).
 * [Modular arithmetic](/my-library/Math/Modular%20arithmetic.cpp) - template for working with a field modulo.
 * [Next permutation](/my-library/Math/Next%20permutation.cpp) - it builds the next permutation in lexicographic order.
 * [Pollard](/my-library/Math/Pollard.cpp) - [link1](https://cp-algorithms.com/algebra/factorization.html#toc-tgt-5) [link2](https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm) - an algorithm for factorization.
@@ -162,5 +163,4 @@ Programs to compare solutions.
 * burnside's theorem
 * redfield–polya theorem
 * improve geometry
-* mobius function
 * euler's totient function
