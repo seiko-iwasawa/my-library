@@ -77,6 +77,8 @@ For any structure, we can update it and get information from. Some structures ha
 * [Fenwick](/my-library/Data%20Structure/Fenwick.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
 * [Heap](/my-library/Data%20Structure/.cpp) - `build`: O(n); `update`: insert element in O(logn), erase max element in O(logn); `get`: get the max element.
 * [Li Chao](/my-library/Data%20Structure/Li%20Chao.cpp) - `update`: add line kx+b in O(logC); `get`: get min kx+b for chosen x in O(logn).
+* [Minimum Queue](/my-library/Data%20Structure/Minimum%20Queue.cpp) - [link1](https://cp-algorithms.com/data_structures/stack_queue_modification.html) - `update`: push/pop element in O(1); `get`: get the minimum element.
+* [Minimum Stack](/my-library/Data%20Structure/Minimum%20Queue.cpp) - [link1](https://cp-algorithms.com/data_structures/stack_queue_modification.html) - `update`: push/pop element in O(1); `get`: get the minimum element.
 * [Persistent Array](/my-library/Data%20Structure/Persistent%20Array.cpp) - `update`: set a_i=x in O(logn); `get`: get a_i in O(logn).
 * [Persistent Segment Tree](/my-library/Data%20Structure/Persistent%20Segment%20Tree.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
 * [Persistent Stack](/my-library/Data%20Structure/Persistent%20Stack.cpp) - `update`: push back in O(1); `get`: get back in O(1).
@@ -151,8 +153,6 @@ Programs to compare solutions.
 * finish up treap
 * seg tree for sum with alternating signs
 * disjoint sparse table
-* minimum stack
-* minimum queue
 * sqrt decomposition
 * binary trie
 
