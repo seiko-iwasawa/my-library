@@ -99,6 +99,7 @@ For any structure, we can update it and get information from. Some structures ha
 * [Berlekamp-Massey](/my-library/Math/Berlekamp-Massey.cpp) - it finds the shortest linear feedback shift register in O(nk). 
 * [Big Integer](/my-library/Math/Big%20Integer.cpp) - template for working with long arithmetic.
 * [Chinese Remainder Theorem](/my-library/Math/Chinese%20Remainder%20Theorem.cpp) - [link1](https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Case_of_two_moduli) + [link2](https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Generalization_to_non-coprime_moduli) - it finds the smallest solution for a system of equation in two modules.
+* [Euler's Totient Function](/my-library/Math/Euler's%20Totient%20Function.cpp) - it builds the Euler's Totient Function very fast.
 * [FFT](/my-library/Math/FFT.cpp) - [link1](https://codeforces.com/blog/entry/43499) [link2](https://cp-algorithms.com/algebra/fft.html) - implementation of discrete fourier transformation in O(nlogn).
 * [GCD extended](/my-library/Math/GCD%20extended.cpp) - [link1](https://cp-algorithms.com/algebra/extended-euclid-algorithm.html) - it finds a solution to the equation ax+by=gcd(a, b).
 * [GCD](/my-library/Math/GCD.cpp) - [link1](https://cp-algorithms.com/algebra/euclid-algorithm.html) - it finds the greatest common divisor.
@@ -163,4 +164,3 @@ Programs to compare solutions.
 * burnside's theorem
 * redfield–polya theorem
 * improve geometry
-* euler's totient function
