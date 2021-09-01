@@ -12,8 +12,8 @@ void build() {
       d[i] = i;
       if (i <= N / i) {
         for (int j = i * i; j < N; j += i) {
-          if (d[i] == 0) {
-            d[i] = i;
+          if (d[j] == 0) {
+            d[j] = i;
           }
         }
       }
