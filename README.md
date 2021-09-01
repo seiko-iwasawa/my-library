@@ -142,7 +142,6 @@ Programs to compare solutions.
 * 2-SAT
 
 ### Data Structure
-* non-amortized dsu
 * persistent seg tree lazy propagation
 * suffix tree
 * suffix automat
