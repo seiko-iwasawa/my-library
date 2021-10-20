@@ -75,7 +75,7 @@ For any structure, we can update it and get information from. Some structures ha
 * [Disjoint Set Union non-amortized](/my-library/Data%20Structure/Disjoint%20Set%20Union%20non-amortized.cpp) - `build`: O(n); `update`: join two sets in O(long(n)); `get`: find the leader of the set in O(log(n)). 
 * [Disjoint Set Union](/my-library/Data%20Structure/Disjoint%20Set%20Union.cpp) `aka DSU` - `build`: O(n); `update`: join two sets in O(A^-1(n)) armotized; `get`: find the leader of the set in O(A^-1(n)) armotized. 
 * [Fenwick](/my-library/Data%20Structure/Fenwick.cpp) - `update`: update the element in O(logn); `get`: get function on the segment in O(logn).
-* [Heap](/my-library/Data%20Structure/.cpp) - `build`: O(n); `update`: insert element in O(logn), erase max element in O(logn); `get`: get the max element.
+* [Heap](/my-library/Data%20Structure/Heap.cpp) - `build`: O(n); `update`: insert element in O(logn), erase max element in O(logn); `get`: get the max element.
 * [Li Chao](/my-library/Data%20Structure/Li%20Chao.cpp) - `update`: add line kx+b in O(logC); `get`: get min kx+b for chosen x in O(logn).
 * [Minimum Queue](/my-library/Data%20Structure/Minimum%20Queue.cpp) - [link1](https://cp-algorithms.com/data_structures/stack_queue_modification.html) - `update`: push/pop element in O(1); `get`: get the minimum element.
 * [Minimum Stack](/my-library/Data%20Structure/Minimum%20Queue.cpp) - [link1](https://cp-algorithms.com/data_structures/stack_queue_modification.html) - `update`: push/pop element in O(1); `get`: get the minimum element.
