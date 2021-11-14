@@ -19,6 +19,7 @@ bool dfs(int v) {
       return true;
     }
   }
+  return false;
 }
 
 void kuhn() {
